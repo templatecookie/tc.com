@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <site-header /> -->
+    <site-header />
     <NuxtPage />
     <site-footer />
   </div>
@@ -9,12 +9,8 @@
 
 <script>
 import HOMEPAGE_QUERY from '~/graphql/homepage'
-import SiteFooter from '~/components/SiteFooter.vue'
 
 export default {
-  components: {
-    SiteFooter
-  },
   async asyncData({ app }) {
     const client = app.apolloProvider.defaultClient;
 

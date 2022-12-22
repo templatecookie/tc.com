@@ -105,6 +105,10 @@
       </div>
     </main>
   </div>
+  <home-our-products />
+  <home-product-features />
+  <home-why-us />
+  <call-to-action />
 </template>
 
 <script setup>
