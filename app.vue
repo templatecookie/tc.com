@@ -6,16 +6,29 @@
   </div>
 </template>
 
-<script setup>
-  import SiteFooter from '~/components/SiteFooter.vue'
-  // import SiteHeader from '~/components/SiteHeader.vue'
 
-  const nuxtApp = useNuxtApp()
+<script>
+import HOMEPAGE_QUERY from '~/graphql/homepage'
+import SiteFooter from '~/components/SiteFooter.vue'
 
-  nuxtApp.hook("page:finish", () => {
-     window.scrollTo(0, 0)
-  })
+export default {
+  components: {
+    SiteFooter
+  },
+  async asyncData({ app }) {
+    const client = app.apolloProvider.defaultClient;
+
+
+  //   const { data } = await client.query({
+  //     query: HOMEPAGE_QUERY,
+  //   })
+
+  //   const homepage = data.homepage;
+  //   const latestProducts = data.allProducts;
+
+  //   return { homepage, latestProducts }
+  },
+};
 </script>
-<style>
 
-</style>
+

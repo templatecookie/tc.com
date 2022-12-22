@@ -111,6 +111,7 @@
 import { ref } from 'vue'
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+import HOMEPAGE_QUERY from '../graphql/homepage'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -120,4 +121,85 @@ const navigation = [
 ]
 
 const mobileMenuOpen = ref(false)
+const QUERY = `
+  query {
+    global{
+      logo {
+        url
+        filename
+        title
+      }
+      favicon {
+        url
+        filename
+        title
+      }
+      supportUrl
+      notice {
+        announcement
+        showNotice
+        cssClass
+      }
+      newsletter {
+        newsletterTitle
+        newsletterDescription
+        socialTitle
+        socialDescription
+        socials {
+          name
+          url
+          icon {
+            url
+          }
+        }
+      }
+
+      defaultFeatures{
+        title
+        description
+        cssClass
+        bgClass
+        action{
+          label
+          href
+          target
+        }
+        icon {
+          filename
+          url
+        }
+      }
+
+      customerSupport {
+        title
+        description
+        cssClass
+        image {
+          filename
+          url
+        }
+      }
+
+      footer {
+        logo {
+          url
+          filename
+        }
+        description
+        menuitems {
+          label
+          products {
+            id
+            slug
+            name
+          }
+        }
+      }
+    }
+  }
+`;
+
+
+const { data, error } = await useGraphqlQuery({ query: HOMEPAGE_QUERY });
+
 </script>
