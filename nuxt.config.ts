@@ -17,5 +17,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     // '@nuxtjs/apollo'
-  ]
+  ],
+  build: {
+    transpile: ['@heroicons/vue']
+  }
 })
