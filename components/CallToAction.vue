@@ -22,5 +22,5 @@
 </template>
 
 <script setup>
-import { ArrowTopRightOnSquareIcon } from '@heroicons/vue/20/solid'
+import { ArrowTopRightOnSquareIcon } from '@heroicons/vue/20/solid/index'
 </script>

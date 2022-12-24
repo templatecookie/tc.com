@@ -51,9 +51,9 @@
 </template>
 
 <script setup>
-import { UsersIcon } from '@heroicons/vue/24/outline'
+import { UsersIcon } from '@heroicons/vue/24/outline/index'
 
-import { BoltIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/vue/24/outline'
+import { BoltIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/vue/24/outline/index'
 
 const features = [
   {

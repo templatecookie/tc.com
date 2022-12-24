@@ -30,7 +30,7 @@ import {
   PencilSquareIcon,
   TrashIcon,
   UsersIcon,
-} from '@heroicons/vue/24/outline'
+} from '@heroicons/vue/24/outline/index'
 
 const features = [
   {

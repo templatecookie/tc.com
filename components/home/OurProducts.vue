@@ -43,7 +43,7 @@ import {
   EnvelopeIcon,
   GlobeAltIcon,
   ScaleIcon,
-} from '@heroicons/vue/24/outline'
+} from '@heroicons/vue/24/outline/index'
 import ProductItem from '../ProductItem.vue';
 
 
