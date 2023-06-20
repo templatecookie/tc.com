@@ -53,117 +53,16 @@
 
 <script setup>
 // import ProductCard from "../components/ProductCard.vue";
-import HOMEPAGE_QUERY from '~/graphql/homepage'
 import HeroSection from "../components/HeroSection.vue";
 import useGraphqlQuery from '~/composables/useGraphqlQuery';
 // import WhyUs from "../components/Home/WhyUs.vue";
 // import BlogSection from "../components/Home/BlogSection.vue";
 // import TopFeaturesSection from "../components/Home/TopFeaturesSection.vue";
 import { ref } from 'vue'
+import homepage from '~/graphql/homepage';
 const heroSection = ref([])
-const hpdata = `
-query {
-  homepage {
-    heroSection {
-      title
-      subtitle
-      description
-      cssClass
-      banner {
-        url
-      }
-      buttons {
-        cssClass
-        label
-        href
-        target
-      }
-    }
-    latestProduct {
-      title
-      description
-      bgClass
-      background {
-        url
-      }
-    }
-    topFeatures {
-      cssClass
-      info {
-        title
-        description
-        bgClass
-        background {
-          url
-        }
-      }
-      features {
-        title
-        description
-        cssClass
-        image {
-          url
-        }
-      }
-    }
-    whyUsSection {
-      info {
-        title
-        description
-        bgClass
-        background {
-          url
-        }
-      }
-      feature {
-        title
-        description
-        cssClass
-        image {
-          url
-        }
-      }
-      counters {
-        title
-        description
-        cssClass
-        counter
-        icon {
-          url
-        }
-      }
-    }
-  }
-  allProducts(first: 6, orderBy: id_DESC, filter: {homepage: {eq: "true"}}) {
-    id
-    name
-    description
-    slug
-    shortName
-    banner {
-      url
-    }
-    category {
-      name
-      slug
-    }
-  }
-  allPosts(first: 3, orderBy: _createdAt_DESC){
-    id
-    title
-    slug
-    updatedAt
-    shortDescription
-    image {
-      url
-    }
-  }
-}
-`
 
-
-
-const { data, error } = await useGraphqlQuery({ query: hpdata });
+const { data, error } = await useGraphqlQuery({ query: homepage });
 
 heroSection.value = data._rawValue.homepage.heroSection
 
