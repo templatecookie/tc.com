@@ -1,10 +1,12 @@
 <script setup>
-import allBlogPosts from "~/graphql/blog/allBlogPosts";
+// import rawData from "~/graphql/blog/allBlogPosts";
+// import rawData from "~/graphql/homepage";
+import rawData from "~/graphql/global";
 
-const { data, error } = await useGraphqlQuery({ query: allBlogPosts });
+const { data, error } = await useGraphqlQuery({ query: rawData });
 
-console.log(data._rawValue.allPosts);
-console.log(error);
+// console.log(data);
+console.error(error);
 </script>
 <template>
   <p v-if="error">Something bad happened!</p>

@@ -1,205 +1,179 @@
-<!-- This example requires Tailwind CSS v3.0+ -->
 <template>
-  <div class="isolate bg-white">
-    <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
-      <svg class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]" viewBox="0 0 1155 678" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".3" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
-        <defs>
-          <linearGradient id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533" x1="1155.49" x2="-78.208" y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#9089FC" />
-            <stop offset="1" stop-color="#FF80B5" />
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-    <div class="px-6 pt-6 lg:px-8">
-      <div class="mx-auto max-w-7xl">
-        <nav class="flex h-9 items-center justify-between" aria-label="Global">
-          <div class="flex lg:min-w-0 lg:flex-1" aria-label="Global">
-            <a href="#" class="-m-1.5 p-1.5">
-              <span class="sr-only">Your Company</span>
-              <img class="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
-            </a>
-          </div>
-          <div class="flex lg:hidden">
-            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = true">
-              <span class="sr-only">Open main menu</span>
-              <Bars3Icon class="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-          <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
-            <a v-for="item in navigation" :key="item.name" :href="item.href" class="font-semibold text-gray-900 hover:text-gray-900">{{ item.name }}</a>
-          </div>
-          <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
-            <a href="#" class="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">Log in</a>
-          </div>
-        </nav>
-        <Dialog as="div" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
-          <DialogPanel focus="true" class="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden">
-            <div class="flex h-9 items-center justify-between">
-              <div class="flex">
-                <a href="#" class="-m-1.5 p-1.5">
-                  <span class="sr-only">Your Company</span>
-                  <img class="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
-                </a>
-              </div>
-              <div class="flex">
-                <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
-                  <span class="sr-only">Close menu</span>
-                  <XMarkIcon class="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-            </div>
-            <div class="mt-6 flow-root">
-              <div class="-my-6 divide-y divide-gray-500/10">
-                <div class="space-y-2 py-6">
-                  <a v-for="item in navigation" :key="item.name" :href="item.href" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">{{ item.name }}</a>
-                </div>
-                <div class="py-6">
-                  <a href="#" class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10">Log in</a>
-                </div>
-              </div>
-            </div>
-          </DialogPanel>
-        </Dialog>
-      </div>
-    </div>
-    <main>
-      <div class="relative px-6 lg:px-8">
-        <div class="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
-          <div>
-            <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-              <div class="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                <span class="text-gray-600">
-                  Announcing our next round of funding. <a href="#" class="font-semibold text-indigo-600"><span class="absolute inset-0" aria-hidden="true" />Read more <span aria-hidden="true">&rarr;</span></a>
-                </span>
-              </div>
-            </div>
-            <div>
-              <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Data to enrich your online business</h1>
-              <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
-              <div class="mt-8 flex gap-x-4 sm:justify-center">
-                <a href="#" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">
-                  Get started
-                  <span class="text-indigo-200" aria-hidden="true">&rarr;</span>
-                </a>
-                <a href="#" class="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                  Live demo
-                  <span class="text-gray-400" aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-            </div>
-            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
-              <svg class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]" viewBox="0 0 1155 678" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)" fill-opacity=".3" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
-                <defs>
-                  <linearGradient id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc" x1="1155.49" x2="-78.208" y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#9089FC" />
-                    <stop offset="1" stop-color="#FF80B5" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
+  <div>
+    <HeroSection :data="heroSection" />
+
+    <!-- Latest Product -->
+    <!-- <section class="latest" v-if="homepage && homepage.latestProduct" id="products">
+      <div class="mx-auto max-w-7xl py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+        <div class="mb-72 text-center">
+          <h2 class="text-4xl md:text-5xl textdark font-semibold capitalize tracking-1 mb-8 ">
+            {{ homepage.latestProduct[0].title }}
+          </h2>
+          <p class="text-lg font-light max-w-lg mx-auto text-dark" v-if="homepage.latestProduct[0].description">
+            {{ homepage.latestProduct[0].description }}
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div
+            v-for="(item, index) in latestProducts"
+            :key="index"
+            class="flex items-stretch" data-aos="fade-up" :data-aos-delay="index * 100">
+            <ProductCard :product="item" :large="false" />
           </div>
         </div>
       </div>
-    </main>
+    </section> -->
+
+    <!-- Why Should  -->
+    <!-- <TopFeaturesSection v-if="homepage && homepage.topFeatures" :data="homepage.topFeatures" />
+    <WhyUs v-if="homepage && homepage.whyUsSection" :data="homepage.whyUsSection" />
+    <div class="bg-primary">
+      <div class="mx-auto max-w-2xl py-16 px-6 text-center sm:py-20 lg:px-8">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <span class="block"> Lunch your site faster </span>
+          <span class="block"> Hire us today </span>
+        </h2>
+        <p class="mt-4 text-lg leading-6 text-white">
+          Our team composed with expert designer and developers to handle project at any size
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center mt-4">
+          <nuxt-link to="/hire-us" class="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-dark hover:text-white hover:bg-dark sm:w-auto">
+            Hire Us Now
+          </nuxt-link>
+          <nuxt-link to="/installation-plans" class="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-dark hover:text-white hover:bg-dark sm:w-auto">
+            Installation Plans
+          </nuxt-link>
+        </div>
+      </div>
+    </div>
+
+    <blog-section :data="latestPosts" /> -->
   </div>
 </template>
 
 <script setup>
+// import ProductCard from "../components/ProductCard.vue";
+import HOMEPAGE_QUERY from '~/graphql/homepage'
+import HeroSection from "../components/HeroSection.vue";
+import useGraphqlQuery from '~/composables/useGraphqlQuery';
+// import WhyUs from "../components/Home/WhyUs.vue";
+// import BlogSection from "../components/Home/BlogSection.vue";
+// import TopFeaturesSection from "../components/Home/TopFeaturesSection.vue";
 import { ref } from 'vue'
-import { Dialog, DialogPanel } from '@headlessui/vue'
-import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
-import HOMEPAGE_QUERY from '../graphql/homepage'
-
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
-
-const mobileMenuOpen = ref(false)
-const QUERY = `
-  query {
-    global{
-      logo {
+const heroSection = ref([])
+const hpdata = `
+query {
+  homepage {
+    heroSection {
+      title
+      subtitle
+      description
+      cssClass
+      banner {
         url
-        filename
-        title
       }
-      favicon {
-        url
-        filename
-        title
-      }
-      supportUrl
-      notice {
-        announcement
-        showNotice
+      buttons {
         cssClass
+        label
+        href
+        target
       }
-      newsletter {
-        newsletterTitle
-        newsletterDescription
-        socialTitle
-        socialDescription
-        socials {
-          name
-          url
-          icon {
-            url
-          }
-        }
+    }
+    latestProduct {
+      title
+      description
+      bgClass
+      background {
+        url
       }
-
-      defaultFeatures{
+    }
+    topFeatures {
+      cssClass
+      info {
         title
         description
-        cssClass
         bgClass
-        action{
-          label
-          href
-          target
-        }
-        icon {
-          filename
+        background {
           url
         }
       }
-
-      customerSupport {
+      features {
         title
         description
         cssClass
         image {
-          filename
           url
         }
       }
-
-      footer {
-        logo {
-          url
-          filename
-        }
+    }
+    whyUsSection {
+      info {
+        title
         description
-        menuitems {
-          label
-          products {
-            id
-            slug
-            name
-          }
+        bgClass
+        background {
+          url
+        }
+      }
+      feature {
+        title
+        description
+        cssClass
+        image {
+          url
+        }
+      }
+      counters {
+        title
+        description
+        cssClass
+        counter
+        icon {
+          url
         }
       }
     }
   }
-`;
+  allProducts(first: 6, orderBy: id_DESC, filter: {homepage: {eq: "true"}}) {
+    id
+    name
+    description
+    slug
+    shortName
+    banner {
+      url
+    }
+    category {
+      name
+      slug
+    }
+  }
+  allPosts(first: 3, orderBy: _createdAt_DESC){
+    id
+    title
+    slug
+    updatedAt
+    shortDescription
+    image {
+      url
+    }
+  }
+}
+`
 
 
-const { data, error } = await useGraphqlQuery({ query: HOMEPAGE_QUERY });
+
+const { data, error } = await useGraphqlQuery({ query: hpdata });
+
+heroSection.value = data._rawValue.homepage.heroSection
+
+
+
+
+
+console.log(data._rawValue.homepage.heroSection);
+if (error) {
+  console.error(error);
+}
 
 </script>

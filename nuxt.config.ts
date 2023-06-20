@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      datoCmsToken: process.env.DATO_CMS_TOKEN,
+      datoCmsToken: `ce32bbd78955d348af32c5f3fb0417`,
     }
   },
   app: {

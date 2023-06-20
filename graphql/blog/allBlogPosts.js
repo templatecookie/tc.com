@@ -1,10 +1,10 @@
 // All Blog Posts
-// import gql from 'graphql-tag';
+import gql from 'graphql-tag';
 
 // export const global = gql`
-export default`
+export default gql`
 query BlogPosts {
-  allPosts(orderBy: _createdAt_ASC) {
+  allPosts(orderBy: _createdAt_DESC) {
     id
     title
     slug

@@ -1,13 +1,10 @@
+// Home Page Query
+// import gql from 'graphql-tag';
+
+// export const global = gql`
 export default `
 query {
   homepage {
-    seoData {
-      title
-      description
-      ogImage {
-        url
-      }
-    }
     heroSection {
       title
       subtitle
@@ -16,30 +13,11 @@ query {
       banner {
         url
       }
-      actions {
+      buttons {
         cssClass
-        link {
-          label
-          href
-          target
-        }
-      }
-    }
-    featuredSection {
-      title
-      description
-      cssClass
-      products {
-        name
-        slug
-        description
-        banner {
-          url
-        }
-        category {
-          name
-          slug
-        }
+        label
+        href
+        target
       }
     }
     latestProduct {
@@ -102,12 +80,23 @@ query {
     name
     description
     slug
+    shortName
     banner {
       url
     }
     category {
       name
       slug
+    }
+  }
+  allPosts(first: 3, orderBy: _createdAt_DESC){
+    id
+    title
+    slug
+    updatedAt
+    shortDescription
+    image {
+      url
     }
   }
 }`
