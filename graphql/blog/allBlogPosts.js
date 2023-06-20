@@ -1,8 +1,8 @@
 // All Blog Posts
-import gql from 'graphql-tag';
+// import gql from 'graphql-tag';
 
 // export const global = gql`
-export default gql`
+export default`
 query BlogPosts {
   allPosts(orderBy: _createdAt_ASC) {
     id
