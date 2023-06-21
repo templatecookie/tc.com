@@ -16,7 +16,14 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.7",
     "@heroicons/vue": "^2.0.13",
+<<<<<<< HEAD
     "@nuxtjs/sentry": "^7.3.0",
     "@tailwindcss/forms": "^0.5.3"
+=======
+    "@tailwindcss/forms": "^0.5.3",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "sass": "^1.63.5"
+>>>>>>> c37cd4dae256dd89645cfb3da0ec8d8c7123f051
   }
 }
