@@ -73,6 +73,6 @@ const latestProducts = ref([])
 homepage.value = data._rawValue.homepage;
 latestProducts.value = data._rawValue.homepage.allProducts;
 latestPosts.value = data._rawValue.homepage.allPosts;
-console.log(data._rawValue.allProducts);
+// console.log(data._rawValue.allProducts);
 
 </script>

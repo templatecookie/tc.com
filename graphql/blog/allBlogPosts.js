@@ -1,5 +1,6 @@
 // All Blog Posts
 // import gql from 'graphql-tag';
+// import gql from 'graphql-tag';
 
 // export const global = gql`
 export default `
