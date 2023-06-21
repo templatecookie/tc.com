@@ -7,58 +7,29 @@ query {
   global{
     logo {
       url
-      filename
       title
     }
-    favicon {
-      url
-      filename
-      title
-    }
-    supportUrl
     notice {
       announcement
       showNotice
       cssClass
     }
-    newsletter {
-      newsletterTitle
-      newsletterDescription
-      socialTitle
-      socialDescription
-      socials {
-        name
-        url
-        icon {
-          url
-        }
-      }
-    }
-
-    defaultFeatures{
-      title
-      description
-      cssClass
-      bgClass
-      action{
-        label
-        href
-        target
-      }
+    socialMedias {
+      name
+      url
       icon {
-        filename
         url
       }
     }
 
-    customerSupport {
-      title
-      description
-      cssClass
-      image {
-        filename
+    selectedProducts {
+      name
+      slug
+      shortName
+      thumbnail {
         url
       }
+      description
     }
 
     footer {

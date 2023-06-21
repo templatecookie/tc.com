@@ -8,13 +8,27 @@ query PostDetails($slug: String) {
     slug
     title
     updatedAt
+    shortDescription
     image {
       alt
       url
     }
     description {
       blocks
-      links
+      links {
+        ... on TagRecord {
+          id
+          slug
+        }
+        ... on ProductRecord {
+          id
+          slug
+        }
+        ... on PostRecord {
+          id
+          slug
+        }
+      }
       value
     }
     tags {

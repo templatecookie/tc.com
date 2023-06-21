@@ -16,6 +16,11 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/tailwindcss',
-    // '@nuxtjs/apollo'
-  ]
+    // '@nuxtjs/apollo',
+  ],
+  // apollo: {
+  //   clients: {
+  //     default: './graphql/config/config.js'
+  //   }
+  // }
 })
