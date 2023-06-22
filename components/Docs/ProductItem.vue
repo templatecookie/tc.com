@@ -22,7 +22,7 @@ export default {
     resolveImage() {
       try {
         console.log(this.product._path)
-        return `${this.product._path}/preview.png`
+        return `~/assets${this.product._path}/preview.png`
       } catch (error) {
         return null;
       }
