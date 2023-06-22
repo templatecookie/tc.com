@@ -48,7 +48,7 @@
 </template>
 
 <script>
-  import DocCategoryCardItem from '../../components/Docs/DocCategoryCardItem.vue';
+  import DocCategoryCardItem from '../../../components/Docs/DocCategoryCardItem.vue';
 
   export default {
     components: {
