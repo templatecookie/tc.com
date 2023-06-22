@@ -4,9 +4,7 @@
       <ContentDoc>
         <div class="flex w-full md:flex-wrap">
           <div class="px-6 pb-0 w-8/12 h-full">
-            <slot>
-              <ContentRenderer class="markdown-body docs-details" :value="this.page" />
-            </slot>
+              <nuxt-content class="markdown-body docs-details" :value="this.page" />
             <div class="pt-8 w-full text-left text-gray-500">
               <i> Updated at {{ formatDate }}</i>
             </div>

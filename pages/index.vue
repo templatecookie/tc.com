@@ -12,14 +12,13 @@
           <p class="text-lg font-light max-w-lg mx-auto text-dark" v-if="homepage.latestProduct[0].description">
             {{ homepage.latestProduct[0].description }}
           </p>
-          <code>{{ latestProducts[0] }}</code>
         </div>
-        <!-- <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           <div v-for="(item, index) in latestProducts" :key="index" class="flex items-stretch" data-aos="fade-up"
             :data-aos-delay="index * 100">
             <ProductCard :product="item" :large="false" />
           </div>
-        </div> -->
+        </div>
       </div>
     </section>
 
