@@ -1,10 +1,10 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
-  "compilerOptions": {
-      // ...
-      "types": [
-          "@nuxtjs/sentry"
-      ]
-  }
+  // "compilerOptions": {
+  //     // ...
+  //     "types": [
+  //         "@nuxtjs/sentry"
+  //     ]
+  // }
 }
