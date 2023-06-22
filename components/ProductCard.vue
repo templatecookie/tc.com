@@ -1,6 +1,6 @@
 <template>
   <!-- card wrapper  -->
-  <!-- <div class="bg-gray-50 relative overflow-hidden border border-gray-f0 rounded-2xl product-card w-full"
+  <div class="bg-gray-50 relative overflow-hidden border border-gray-f0 rounded-2xl product-card w-full"
     :class="large ? 'product-card--lg' : 'product-card--sm'">
     <nuxt-link to="/"
       class="product-card__img relative inline-block overflow-hidden rounded-lg w-full product-card__img-wrapper">
@@ -24,7 +24,7 @@
       <div class="flex justify-between items-center sm:mt-0 mt-6  product-card__actions">
         <div class="flex items-center space-x-3 order-2 sm:order-1">
           <div>
-            <nuxt-link :to="{ name: 'demo-slug', params: { slug: product.slug } }"
+            <nuxt-link to="/"
               class="flex items-center overflow-hidden border border-primary text-primary rounded-lg group py-3.5 px-9 whitespace-nowrap product-card__button">
               View Details
               <span class="inline-block ml-2">
@@ -40,7 +40,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <script>
@@ -57,10 +57,6 @@ export default {
       required: true,
     }
   },
-  setup({ product }) {
-    console.log(product);
-  }
-
 };
 </script>
 
