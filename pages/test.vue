@@ -1,15 +1,15 @@
 <script setup>
 // import rawData from "~/graphql/blog/allBlogPosts";
 import ProductCard from "~/components/ProductCard.vue";
-import rawData from "~/graphql/homepage";
-// import rawData from "~/graphql/global";
+// import rawData from "~/graphql/homepage";
+import rawData from "~/graphql/global";
 import { ref } from "vue"
 
 const latestProducts = ref([])
 
 
 const { data, error } = await useGraphqlQuery({ query: rawData });
-// latestProducts.value = data._rawValue.allProducts;
+latestProducts.value = data._rawValue;
 
 // console.error(error);
 // console.log(data);

@@ -1,7 +1,3 @@
-// Global Query
-// import gql from 'graphql-tag';
-
-// export const global = gql`
 export default `
 query {
   global{

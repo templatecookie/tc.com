@@ -1,6 +1,5 @@
 <template>
-  <nuxt-link :to="{ name: 'blog-slug', params: { slug: item.slug } }"
-    class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden group bg-white">
+  <nuxt-link to="/" class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden group bg-white">
     <div class="text-green-500 md:mb-2 lg:mb-0">
       <img class="w-full lg:h-52 md:h-48 h-48 object-center object-cover" v-if="item.image && item.image.url"
         :src="item.image.url" :alt="item.title">
