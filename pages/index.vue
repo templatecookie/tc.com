@@ -14,12 +14,12 @@
           </p>
           <code>{{ latestProducts[0] }}</code>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <!-- <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           <div v-for="(item, index) in latestProducts" :key="index" class="flex items-stretch" data-aos="fade-up"
             :data-aos-delay="index * 100">
             <ProductCard :product="item" :large="false" />
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -52,12 +52,8 @@
 </template>
 
 <script setup>
-// import ProductCard from "../components/ProductCard.vue";
-import HeroSection from "../components/HeroSection.vue";
+
 import useGraphqlQuery from '~/composables/useGraphqlQuery';
-// import WhyUs from "../components/Home/WhyUs.vue";
-// import BlogSection from "../components/Home/BlogSection.vue";
-// import TopFeaturesSection from "../components/Home/TopFeaturesSection.vue";
 import { ref } from 'vue'
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
@@ -76,8 +72,8 @@ const homepage = ref({})
 const latestPosts = ref([])
 const latestProducts = ref([])
 homepage.value = data._rawValue.homepage;
-latestProducts.value = data._rawValue.homepage.allProducts;
-latestPosts.value = data._rawValue.homepage.allPosts;
-// console.log(data._rawValue.allProducts);
+latestProducts.value = data._rawValue.allProducts;
+// latestPosts.value = data._rawValue.homepage.allPosts;
+console.log(data._rawValue.allProducts);
 
 </script>

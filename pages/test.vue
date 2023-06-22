@@ -1,18 +1,27 @@
 <script setup>
 // import rawData from "~/graphql/blog/allBlogPosts";
-// import rawData from "~/graphql/homepage";
-import rawData from "~/graphql/global";
+import ProductCard from "~/components/ProductCard.vue";
+import rawData from "~/graphql/homepage";
+// import rawData from "~/graphql/global";
+import { ref } from "vue"
+
+const latestProducts = ref([])
+
 
 const { data, error } = await useGraphqlQuery({ query: rawData });
-
-// console.log(data);
-console.error(error);
+latestProducts.value = data._rawValue.allProducts;
+console.log(data);
+// console.error(error);
 console.log(data);
 // console.log(error);
 </script>
 <template>
   <p v-if="error">Something bad happened!</p>
-  <p v-else>Data: <code>{{ data }}</code></p>
+  <p v-else>Data: <code>{{ latestProducts }}</code></p>
+  <div v-for="(item, index) in latestProducts" :key="index" class="flex items-stretch" data-aos="fade-up"
+    :data-aos-delay="index * 100">
+    <ProductCard :product="item" />
+  </div>
 </template>
 
 <!-- <template>
