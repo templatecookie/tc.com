@@ -47,6 +47,7 @@
       </div>
     </div>
     <blog-section :data="latestPosts" />
+    <!-- <code>{{ latestPosts }}</code> -->
   </div>
 </template>
 
@@ -72,7 +73,7 @@ const latestPosts = ref([])
 const latestProducts = ref([])
 homepage.value = data._rawValue.homepage;
 latestProducts.value = data._rawValue.allProducts;
-latestPosts.value = data._rawValue.homepage.allPosts;
+latestPosts.value = data._rawValue.allPosts;
 // console.log(data._rawValue.allPosts);
 
 </script>

@@ -41,8 +41,92 @@
             </div>
         </header>
         <slot />
-        <!-- <code class="bg-secondary text-white">{{ global?.footer[0] }}</code> -->
-        <site-footer :data="global?.footer[0]" :social="global?.socialMedias" />
+        <footer aria-labelledby="footer-heading" class="bg-gray-900 mt-20">
+            <h2 id="footer-heading" class="sr-only">Footer</h2>
+            <div class="mx-auto pt-12 px-4 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8 lg:pt-24">
+                <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                    <div class="space-y-8 xl:col-span-1"><img
+                            src="https://www.datocms-assets.com/73511/1653473092-templatecookie_441aa70281.png"
+                            alt="Templatecookie Footer Logo" class="h-10">
+                        <p class="text-base text-gray-400">
+                            We build readymade websites, mobile applications, and elaborate online business services.
+                        </p>
+                        <div class="flex space-x-6"><a href="https://www.pinterest.com/templatecookie/"
+                                class="text-gray-400 hover:text-gray-300 h-10 w-10 flex justify-center items-center"><span
+                                    class="sr-only">Facebook</span> <img
+                                    src="https://www.datocms-assets.com/73511/1671774335-pinterest.svg"
+                                    alt="Pinterest"></a><a href="https://dribbble.com/templatecookie/"
+                                class="text-gray-400 hover:text-gray-300 h-10 w-10 flex justify-center items-center"><span
+                                    class="sr-only">Facebook</span> <img
+                                    src="https://www.datocms-assets.com/73511/1671774355-dribbble.svg" alt="Dribbble"></a><a
+                                href="https://github.com/templatecookie"
+                                class="text-gray-400 hover:text-gray-300 h-10 w-10 flex justify-center items-center"><span
+                                    class="sr-only">Facebook</span> <img
+                                    src="https://www.datocms-assets.com/73511/1671772053-github.svg" alt="Github"></a><a
+                                href="https://www.facebook.com/templatecookie/"
+                                class="text-gray-400 hover:text-gray-300 h-10 w-10 flex justify-center items-center"><span
+                                    class="sr-only">Facebook</span> <img
+                                    src="https://www.datocms-assets.com/73511/1671772069-facebook.svg" alt="Facebook"></a>
+                        </div>
+                    </div>
+                    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+                        <div>
+                            <h3 class="text-base font-medium text-gray-200">Our Products</h3>
+                            <ul role="list" class="mt-4 space-y-4">
+                                <li><a href="/demo/jobpilot-job-portal-script-php-laravel"
+                                        class="text-base text-gray-400 hover:text-gray-300">Jobpilot - Job Portal Laravel
+                                        Script</a></li>
+                                <li><a href="/demo/adlisting-classified-ads-script"
+                                        class="text-base text-gray-400 hover:text-gray-300">Adlisting - Classified Ads PHP
+                                        Script</a></li>
+                                <li><a href="/demo/schooling-school-management-system-script"
+                                        class="text-base text-gray-400 hover:text-gray-300">Schooling - The Ultimate PHP
+                                        Script for Efficient School Management</a></li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-between flex-wrap md:flex-nowrap">
+                            <div>
+                                <h3 class="text-base font-medium text-gray-200">Company</h3>
+                                <ul role="list" class="mt-4 space-y-4">
+                                    <li><a href="/hire-us" class="text-base text-gray-400 hover:text-gray-300">Hire Us</a>
+                                    </li>
+                                    <li><a href="/installation-plans"
+                                            class="text-base text-gray-400 hover:text-gray-300">Installation Plans</a></li>
+                                    <li><a href="/get-support" class="text-base text-gray-400 hover:text-gray-300">Get
+                                            Support</a></li>
+                                    <li><a href="/docs"
+                                            class="text-base text-gray-400 hover:text-gray-300">Documentation</a></li>
+                                    <li><a href="https://1.envato.market/EaNJ2X" target="_blank"
+                                            class="text-base text-gray-400 hover:text-gray-300">Codecanyon Profile</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-medium text-gray-200">Others</h3>
+                                <ul role="list" class="mt-4 space-y-4">
+                                    <li><a href="/blog" class="text-base text-gray-400 hover:text-gray-300">Read Our
+                                            Blog</a></li>
+                                    <li><a href="/privacy-policy"
+                                            class="text-base text-gray-400 hover:text-gray-300">Privacy Policy</a></li>
+                                    <li><a href="/refund-policy" class="text-base text-gray-400 hover:text-gray-300">Refund
+                                            Policy</a></li>
+                                    <li><a href="/terms" class="text-base text-gray-400 hover:text-gray-300">Terms &amp;
+                                            Condition</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 border-t border-gray-700 py-6 md:flex md:items-center md:justify-between">
+                    <div class="md:order-2"><img src="../images/payment-gateway.svg"
+                            alt="Templatecookie Payment Gateway Images" class="h-[37px] w-[390px]"></div>
+                    <p class="mt-8 text-sm text-gray-400 md:order-3 md:mt-0">
+                        © 2023 All Rights Reserved -
+                        Templatecookie
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!-- <site-footer :data="global?.footer[0]" :social="global?.socialMedias" /> -->
     </div>
 </template>
 
@@ -52,7 +136,7 @@ import Global from '../graphql/global';
 
 const global = ref({})
 const { data } = useGraphqlQuery({ query: Global })
-global.value = data._rawValue.global;
+global.value = data._rawValue;
 
 // console.log(data._rawValue.global);
 

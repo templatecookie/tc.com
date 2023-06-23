@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- <code>{{ footer.logo }}</code> -->
-    <footer class="bg-gray-900 mt-20" aria-labelledby="footer-heading">
+    <code>{{ footer }}</code>
+    <!-- <footer class="bg-gray-900 mt-20" aria-labelledby="footer-heading">
       <h2 id="footer-heading" class="sr-only">Footer</h2>
       <div class="mx-auto pt-12 px-4 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8 lg:pt-24">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
@@ -81,7 +81,7 @@
 
         <div class="mt-12 border-t border-gray-700 py-6 md:flex md:items-center md:justify-between">
           <div class="md:order-2">
-            <img class="h-[37px] w-[390px]" src="/images/payment-gateway.svg"
+            <img class="h-[37px] w-[390px]" src="../images/payment-gateway.svg"
               alt="Templatecookie Payment Gateway Images" />
           </div>
           <p class="mt-8 text-sm text-gray-400 md:order-3 md:mt-0">
@@ -90,7 +90,7 @@
           </p>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 

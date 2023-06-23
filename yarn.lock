@@ -6442,6 +6442,11 @@ vscode-uri@^3.0.2:
   resolved "https://registry.yarnpkg.com/vscode-uri/-/vscode-uri-3.0.7.tgz#6d19fef387ee6b46c479e5fb00870e15e58c1eb8"
   integrity sha512-eOpPHogvorZRobNqJGhapa0JdwaxpjVvyBp0QIUMRMSf8ZAlqOdEquKuRmw9Qwu0qXtJIWqFtMkmvJjUZmMjVA==
 
+vue-awesome-swiper@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/vue-awesome-swiper/-/vue-awesome-swiper-5.0.1.tgz#ba0d20ec9ca4dff2b7b4e99592cf59308335dfcc"
+  integrity sha512-mWjFJzUqA4lG+DmsmibvMpoiBnl+IH2SSeiiQ3i5M0t1y9FknTxnGT0DsMb2YdJLgjYMEK3sYOWzqgLnZMH8Lg==
+
 vue-bundle-renderer@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/vue-bundle-renderer/-/vue-bundle-renderer-1.0.3.tgz#422438aa4a024e2833e87a5a2d0b97c6c12fb2d8"
