@@ -20,9 +20,3 @@ latestProducts.value = data._rawValue;
   <p v-else>Data: <code>{{ latestProducts }}</code></p>
   <div></div>
 </template>
-
-<!-- <template>
-<h1>hello world</h1>
-</template> -->
-
-</script> -->
