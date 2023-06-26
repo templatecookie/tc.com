@@ -41,7 +41,7 @@
             </div>
         </header>
         <slot />
-        <footer aria-labelledby="footer-heading" class="bg-gray-900 mt-20">
+        <!-- <footer aria-labelledby="footer-heading" class="bg-gray-900 mt-20">
             <h2 id="footer-heading" class="sr-only">Footer</h2>
             <div class="mx-auto pt-12 px-4 sm:px-6 sm:pt-16 lg:max-w-7xl lg:px-8 lg:pt-24">
                 <div class="xl:grid xl:grid-cols-3 xl:gap-8">
@@ -125,17 +125,19 @@
                     </p>
                 </div>
             </div>
-        </footer>
-        <!-- <site-footer :data="global?.footer[0]" :social="global?.socialMedias" /> -->
+        </footer> -->
+        <!-- <pre>
+            {{ global?.global?.footer[0].logo.url }}
+        </pre> -->
+        <site-footer :data="global?.global.footer[0]" :social="global?.global.socialMedias" />
     </div>
 </template>
 
-<!-- <script setup>
+<script setup>
 import SiteFooter from '~/components/SiteFooter.vue';
-import Global from '../graphql/global';
+import GlobalQuery from '../graphql/global';
 
 const global = ref({})
-const { data } = useGraphqlQuery({ query: Global })
+const { data } = useGraphqlQuery({ query: GlobalQuery })
 global.value = data._rawValue;
-
-</script> -->
+</script>
