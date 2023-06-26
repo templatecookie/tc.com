@@ -20,24 +20,24 @@
         <h2 class="mb-6 text-3xl font-medium">Choose your purchased product</h2>
         <div class="grid gap-4 grid-cols-1 lg:grid-cols-3 sm:grid-cols-2">
           <div v-for="(item, index) in products" :key="index">
-            <input class="hidden" type="radio" name="choose-product" :id="'id' + item.product.id"
-              :value="'id' + item.product.id" v-model="selectedProduct" />
-            <label :for="'id' + item.product.id">
+            <input class="hidden" type="radio" name="choose-product" :id="'id' + item?.product?.id"
+              :value="'id' + item?.product?.id" v-model="selectedProduct" />
+            <label :for="'id' + item?.product?.id">
               <div class="flex items-center gap-3 rounded-xl p-5"
-                :class="selectedProduct == `id${item.product.id}` ? 'border-2 border-[#0B63E5] bg-white' : 'bg-gray-f0 border-2 border-transparent'">
-                <div class="flex-shrink-0" v-if="item.product.thumbnail">
+                :class="selectedProduct === `id${item?.product?.id}` ? 'border-2 border-[#0B63E5] bg-white' : 'bg-gray-f0 border-2 border-transparent'">
+                <div class="flex-shrink-0" v-if="item?.product?.thumbnail">
                   <img class="w-16 h-16 object-cover rounded-md" :src="item.product.thumbnail.url"
                     :alt="item.product.name" />
                 </div>
-                <h2 class="text-base text-[#061C3D]"> {{ item.product.name }} </h2>
+                <h2 class="text-base text-[#061C3D]"> {{ item?.product?.name }} </h2>
               </div>
             </label>
           </div>
         </div>
       </div>
     </section>
-    <PricingSection :id="selectedProductData.id" :plans="selectedProductPlans" :info="selectedProductData"
-      :checkout="true" />
+    <!-- <PricingSection :id="selectedProductData?.id" :plans="selectedProductPlans" :info="selectedProductData"
+      :checkout="true" /> -->
   </div>
 </template>
 
@@ -45,7 +45,7 @@
 import ALL_PRODUCT_PLANS from '../graphql/allProductPlans'
 import PricingSection from '~/components/PricingSection.vue'
 import useGraphqlQuery from '~/composables/useGraphqlQuery';
-import { ref } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
 export default {
   head: {
@@ -62,31 +62,34 @@ export default {
   },
 
   async setup() {
-
     const selectedProduct = ref(null);
-    const bannerImg = ref("../images/img-five.png");
+    const bannerImg = ref("/img-five.png");
     const products = ref({});
     const { data, error } = await useGraphqlQuery({ query: ALL_PRODUCT_PLANS });
-    products.value = data?._rawValue;
-    // console.log(data?._rawValue);
+    products.value = data?._rawValue?.allProductplans;
+    console.log(data?._rawValue?.allProductplans);
+    const selectedProductData = computed(() => {
+      return products.find(elem => elem.product.id === selectedProduct.replace('id', ''));
+    });
+    const selectedProductPlans = computed(() => {
+      if (selectedProductData) {
+        return selectedProductData.plans.map(item => item.priceplan[0]);
+      }
+      return [];
+    });
+    onMounted(() => {
+      selectedProduct = 'id' + products[0].product.id;
+
+    });
     return {
-      selectedProduct,
       bannerImg,
-      products
+      products,
+      selectedProduct,
+      // selectedProductData,
+      // selectedProductPlans,
     }
-  },
-  computed: {
-    selectedProductData() {
-      return products.value.find(elem => elem.product.id == selectedProduct.value.replace('id', ''));
-    },
-    selectedProductPlans() {
-      return selectedProductData.value.plans.map(item => item.priceplan[0])
-    }
-  },
-  created() {
-    selectedProduct.value = 'id' + this?.products[0]?.product.id
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
