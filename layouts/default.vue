@@ -129,8 +129,7 @@
         <!-- <pre>
             {{ global?.global?.footer[0].logo.url }}
         </pre> -->
-        <site-footer :data="global?.global.footer[0]" :social="global?.global.socialMedias"
-            v-if="global && global.footer" />
+        <site-footer :data="global?.global.footer[0]" :social="global?.global.socialMedias" />
     </div>
 </template>
 
