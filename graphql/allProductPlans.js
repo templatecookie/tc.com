@@ -1,8 +1,4 @@
-// Global Query
-import gql from 'graphql-tag';
-
-// export const global = gql`
-export default gql`
+export default `
   query productPlans {
     allProductplans(filter: {statusKey: {eq: "true"}}) {
       title

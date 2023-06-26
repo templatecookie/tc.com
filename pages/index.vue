@@ -1,15 +1,15 @@
 <template>
   <div>
-    <HeroSection :data="homepage.heroSection" v-if="homepage && homepage.heroSection" />
+    <HeroSection :data="homepage.heroSection" v-if="homepage && homepage?.heroSection" />
 
     <!-- Latest Product -->
-    <section class="latest" v-if="homepage && homepage.latestProduct" id="products">
+    <section class="latest" v-if="homepage && homepage?.latestProduct" id="products">
       <div class="mx-auto max-w-7xl py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div class="mb-72 text-center">
           <h2 class="text-4xl md:text-5xl textdark font-semibold capitalize tracking-1 mb-8 ">
             {{ homepage.latestProduct[0].title }}
           </h2>
-          <p class="text-lg font-light max-w-lg mx-auto text-dark" v-if="homepage.latestProduct[0].description">
+          <p class="text-lg font-light max-w-lg mx-auto text-dark" v-if="homepage?.latestProduct[0].description">
             {{ homepage.latestProduct[0].description }}
           </p>
         </div>
@@ -47,7 +47,6 @@
       </div>
     </div>
     <blog-section :data="latestPosts" />
-    <!-- <code>{{ latestPosts }}</code> -->
   </div>
 </template>
 
