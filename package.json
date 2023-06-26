@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --port=5000",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -21,7 +21,6 @@
     "autoprefixer": "^10.4.14",
     "dayjs": "^1.11.8",
     "postcss": "^8.4.24",
-    "sass": "^1.63.5",
-    "vue-awesome-swiper": "^5.0.1"
+    "sass": "^1.63.5"
   }
 }

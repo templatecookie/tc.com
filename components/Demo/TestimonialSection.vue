@@ -7,7 +7,7 @@
         <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           What People Say About Us
         </h2>
-        <p class="mt-3 mx-auto max-w-xl text-lg text-gray-200"> 
+        <p class="mt-3 mx-auto max-w-xl text-lg text-gray-200">
           <!-- {{ data.description }} -->
           Don't just listen to our words, see what our valued customers think about our product.
         </p>
@@ -50,7 +50,7 @@
 </template>
 <script>
 
-import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+// import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 // import "swiper/css/swiper.css";
 
 export default {
@@ -59,7 +59,7 @@ export default {
     Swiper,
     SwiperSlide
   },
-  data (){
+  data() {
     return {
       config: {
         slidesPerView: 2,
@@ -68,7 +68,7 @@ export default {
         //   delay: 3000,
         //   disableOnInteraction: true,
         // },
-        
+
         breakpoints: {
           768: {
             slidesPerView: 2,
@@ -90,6 +90,4 @@ export default {
   }
 }
 </script>
-<style>
-  
-</style>
+<style></style>

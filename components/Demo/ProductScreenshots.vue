@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+// import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 // import "swiper/css/swiper.css";
 
 export default {
@@ -50,7 +50,7 @@ export default {
     Swiper,
     SwiperSlide
   },
-  data (){
+  data() {
     return {
       swiperOptionTwo: {
         slidesPerView: 1,

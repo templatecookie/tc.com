@@ -3,17 +3,23 @@
     <div class="relative overflow-hidden">
       <div class="absolute inset-y-0 h-full w-full" aria-hidden="true">
         <div class="relative h-full">
-          <svg class="absolute right-full translate-y-1/3 translate-x-1/4 transform sm:translate-x-1/2 md:translate-y-1/2 lg:translate-x-full" width="404" height="784" fill="none" viewBox="0 0 404 784">
+          <svg
+            class="absolute right-full translate-y-1/3 translate-x-1/4 transform sm:translate-x-1/2 md:translate-y-1/2 lg:translate-x-full"
+            width="404" height="784" fill="none" viewBox="0 0 404 784">
             <defs>
-              <pattern id="e229dbec-10e9-49ee-8ec3-0286ca089edf" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <pattern id="e229dbec-10e9-49ee-8ec3-0286ca089edf" x="0" y="0" width="20" height="20"
+                patternUnits="userSpaceOnUse">
                 <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
               </pattern>
             </defs>
             <rect width="404" height="784" fill="url(#e229dbec-10e9-49ee-8ec3-0286ca089edf)" />
           </svg>
-          <svg class="absolute left-full -translate-y-3/4 -translate-x-1/4 transform sm:-translate-x-1/2 md:-translate-y-1/2 lg:-translate-x-3/4" width="404" height="784" fill="none" viewBox="0 0 404 784">
+          <svg
+            class="absolute left-full -translate-y-3/4 -translate-x-1/4 transform sm:-translate-x-1/2 md:-translate-y-1/2 lg:-translate-x-3/4"
+            width="404" height="784" fill="none" viewBox="0 0 404 784">
             <defs>
-              <pattern id="d2a68204-c383-44b1-b99f-42ccff4e5365" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <pattern id="d2a68204-c383-44b1-b99f-42ccff4e5365" x="0" y="0" width="20" height="20"
+                patternUnits="userSpaceOnUse">
                 <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
               </pattern>
             </defs>
@@ -34,12 +40,16 @@
           </div>
           <div class="mt-8 flex justify-center gap-4 flex-wrap">
             <template v-for="(item, index) in product.actionButtons" :key="index">
-                <a v-if="item.target" :href="item.href" target="_blank" class="block text-center sm:inline-block bg-primary font-medium rounded-7 py-3.5 px-8 text-lg text-white duration-300 mb-3 sm:mb-0"  :class="item.cssClass ? item.cssClass : 'bg-primary hover:bg-dark'">
+              <a v-if="item.target" :href="item.href" target="_blank"
+                class="block text-center sm:inline-block bg-primary font-medium rounded-7 py-3.5 px-8 text-lg text-white duration-300 mb-3 sm:mb-0"
+                :class="item.cssClass ? item.cssClass : 'bg-primary hover:bg-dark'">
                 {{ item.label }}
-                </a>
-                <nuxt-link v-else :to="item.href" class="block text-center sm:inline-block bg-primary font-medium rounded-7 py-3.5 px-8 text-lg text-white duration-300 mb-3 sm:mb-0"  :class="item.cssClass ? item.cssClass : 'bg-primary hover:bg-dark'">
-                {{ item.label}}
-                </nuxt-link>
+              </a>
+              <nuxt-link v-else :to="item.href"
+                class="block text-center sm:inline-block bg-primary font-medium rounded-7 py-3.5 px-8 text-lg text-white duration-300 mb-3 sm:mb-0"
+                :class="item.cssClass ? item.cssClass : 'bg-primary hover:bg-dark'">
+                {{ item.label }}
+              </nuxt-link>
             </template>
           </div>
         </div>
@@ -71,7 +81,7 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+// import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 // import "swiper/css/swiper.css";
 
 export default {
@@ -115,7 +125,7 @@ export default {
     }
   },
   methods: {
-    getBanner(){
+    getBanner() {
       return this.product.demoBanner && this.product.demoBanner.url ? this.product.demoBanner.url : this.bgImage;
     }
   },
@@ -126,6 +136,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

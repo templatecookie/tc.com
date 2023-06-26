@@ -1,7 +1,7 @@
 <!-- v-if="global && global.footer" -->
 <template>
     <div>
-        <header>
+        <!-- <header>
             <div class="relative bg-white">
                 <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:justify-start lg:space-x-10">
                     <div class="flex justify-start lg:w-0 lg:flex-1"><a href="/" aria-current="page"
@@ -39,7 +39,8 @@
                         </a></div>
                 </div>
             </div>
-        </header>
+        </header> -->
+        <site-header :data="global?.logo" v-if="global?.logo" />
         <slot />
         <!-- <footer aria-labelledby="footer-heading" class="bg-gray-900 mt-20">
             <h2 id="footer-heading" class="sr-only">Footer</h2>
@@ -127,18 +128,18 @@
             </div>
         </footer> -->
         <!-- <pre>
-            {{ global?.global?.footer[0].logo.url }}
+            {{ global }}
         </pre> -->
-        <site-footer :data="global?.global.footer[0]" :social="global?.global.socialMedias"
-            v-if="global && global.footer" />
+        <site-footer :data="global?.footer[0]" :social="global?.socialMedias" v-if="global && global?.footer" />
     </div>
 </template>
 
 <script setup>
 import SiteFooter from '~/components/SiteFooter.vue';
-import GlobalQuery from '../graphql/global';
+import SiteHeader from '~/components/SiteHeader.vue';
+import Global from '../graphql/global';
 
 const global = ref({})
-const { data } = useGraphqlQuery({ query: GlobalQuery })
-global.value = data._rawValue;
+const { data } = useGraphqlQuery({ query: Global })
+global.value = data?._rawValue?.global;
 </script>
