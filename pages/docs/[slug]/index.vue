@@ -20,8 +20,8 @@
             <ul class="mb-6" v-for="(items, index) in categories" :key="index">
               <li class="uppercase text-xs text-gray-500 mb-2"> {{ index }} </li>
               <li v-for="(item, index) in items" :key="index">
-                <nuxt-link :to="item._path" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm"> {{
-                  item.title }} </nuxt-link>
+                <a :href="item._path" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm"> {{
+                  item.title }} </a>
               </li>
             </ul>
             <ul>
