@@ -1,61 +1,58 @@
 <template>
     <div>
-        <section class="realtive py-12 lg:py-20 bg-no-repeat bg-center bg-cover"
-            style="background-image: url('https://www.datocms-assets.com/73511/1653474086-hero_bg.png')">
+        <section class="py-12 lg:pb-12 bg-no-repeat bg-center bg-cover" :style="{ backgroundImage: `url(${bannerImg})` }">
             <div class="mx-auto max-w-7xl px-4 sm:px-6">
-                <div class="text-center">
-                    <h1 class="text-4xl md:text-heading-40 textdark mb-6 max-w-680 mx-auto font-semibold">
-                        Templatecookie Docs
+                <div class="text-left">
+                    <h1 class="text-4xl md:text-heading-40 textdark mb-6 mx-auto font-semibold" v-if="product">
+                        {{ product.title }} - Documentation
                     </h1>
-                    <p class="text-lg md:text-lg textdark mb-8 max-w-full md:max-w-536 mx-auto font-light">
-                        Don't have previous experience using our products? Read the documentation to learn more about the
-                        complex features and topics.
+                    <p class="text-lg md:text-lg textdark mb-8 font-light" v-if="product">
+                        {{ product.description }}
                     </p>
                 </div>
             </div>
         </section>
-        <div class="flex w-full md:flex-wrap">
-            <div class="px-6 pb-0 w-8/12 h-full">
-                <ContentDoc class="markdown-body docs-details" />
-                <div class="pt-8 w-full text-left text-gray-500">
-                    <i> Updated at {{ formatDate }}</i>
+        <section>
+            <div class="mx-auto max-w-7xl px-4 sm:px-6">
+                <div class="flex py-8 items-start">
+                    <div class="w-3/12 h-full border-r-[1px] border-gray-100 ">
+                        <pre>{{categories}}</pre>
+                        <ul class="mb-6" v-for="(items, index) in categories" :key="index">
+                            <li class="uppercase text-xs text-gray-500 mb-2"> {{ index }} </li>
+                            <li v-for="(item, index) in items" :key="index">
+                                <nuxt-link :to="item.path"
+                                    class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm"> {{ item.title }}
+                                </nuxt-link>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <nuxt-link :to="`/docs/${$route.params.slug}/hosting`"
+                                    class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
+                                    Hosting
+                                </nuxt-link>
+                            </li>
+                            <li>
+                                <nuxt-link :to="`/docs/${$route.params.slug}/faq`"
+                                    class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
+                                    FAQ
+                                </nuxt-link>
+                            </li>
+                        </ul>
+                    </div>
+                    <NuxtChild :productName="product?.title + ' Documentation'" :categories="categories" />
                 </div>
             </div>
-            <div class="px-4 w-4/12 h-auto border-l border-gray-100">
-                <aside class="col-span-1 lg:flex lg:flex-col">
-                    <div class="sticky top-16">
-                        <h2 class="uppercase text-black font-h2 text-lg tracking-wider">
-                            Table of contents
-                        </h2>
-                        <nav class="mt-4">
-                            <ul class="mb-2">
-                                <li @click="tableOfContentsHeadingClick(link)" class="toc-list" :class="{ 'pl-4': link.depth === 3}" v-for="link of page" :key="link.id">
-                                    <a role="button" class="transition-colors duration-75 mb-2 block text-gray-700 font-light text-sm" :class="{ 'text-blue-500 hover:text-blue-600': link.id === currentlyActiveToc, 'text-black hover:gray-900': link.id !== currentlyActiveToc }" :href="`#${link.id}`">{{ link.text }}</a>
-                                </li>
-                            </ul>
-                            <div class="bg-blue-200 px-3 py-5 rounded-md mt-4">
-                                <h3 class="text-xl mb-2"> Buy our products from Envato Market </h3>
-                                <a href="https://go.templatecookie.com/codecanyon" target="_blank" class="outline-btn">
-                                    Buy our products
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-1" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
-                                        <rect width="256" height="256" fill="none"></rect>
-                                        <path d="M122.3,71.4l19.8-19.8a44.1,44.1,0,0,1,62.3,62.3l-28.3,28.2a43.9,43.9,0,0,1-62.2,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
-                                        <path d="M133.7,184.6l-19.8,19.8a44.1,44.1,0,0,1-62.3-62.3l28.3-28.2a43.9,43.9,0,0,1,62.2,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </nav>
-                    </div>
-                </aside>
-            </div>
-        </div>
+        </section>
     </div>
 </template>
 
 <script>
     import dayjs from 'dayjs'
+    import DocCategoryCardItem from '../../../../components/Docs/DocCategoryCardItem.vue';
     export default {
         props: ['productName', 'categories'],
+        components: {DocCategoryCardItem},
         scrollToTop: true,
         head() {
             const title = this.page.title + ` - ${this.productName}`;
@@ -92,18 +89,6 @@
                 ]
             }
         },
-        // async asyncData ({ $content, route, $sentry}) {
-        //   try{
-        //     const page = await $content(route.path)
-        //     .sortBy('position', 'asc')
-        //     .fetch()
-        //     return {
-        //       page
-        //     }
-        //   } catch (error) {
-        //     $sentry.captureException(error)
-        //   }
-        // },
         computed: {
             formatDate() {
                 console.log(this.page)
