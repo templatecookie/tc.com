@@ -38,7 +38,7 @@
                         </ul>
                     </div>
                     <div class="px-4 w-9/12 flex flex-wrap h-auto border-l border-gray-100">
-                        <ContentDoc class="px-6 pb-0 w-8/12 h-full" />
+                        <ContentDoc class="px-6 pb-0 w-8/12 h-full markdown-body docs-details" />
                         <aside class="px-4 w-4/12 h-auto border-l border-gray-100">
                             <div class="sticky top-16">
                                 <h2 class="uppercase text-black font-h2 text-lg tracking-wider">
