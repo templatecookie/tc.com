@@ -40,7 +40,7 @@
             </ul>
           </div>
           <div class="flex flex-wrap gap-4 ml-4 w-full">
-            <DocCategoryCardItem :productName="product" :categories="categories" />
+            <DocCategoryCardItem :product="product" :categories="categories" />
           </div>
         </div>
       </div>
@@ -77,7 +77,6 @@
   const pdata = await useAsyncData('home2', () => queryContent(`/docs/${dir}`).only(['title', 'description']).where({'status': {$contains : 'true'}}).find())
   console.log(pdata)
   const [product] = pdata.data._rawValue
-  console.log(product)
   const ptitle = product?.title
   const pdescription = product?.description
 </script>
