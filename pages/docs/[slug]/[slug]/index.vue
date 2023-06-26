@@ -19,28 +19,27 @@
                         <ul class="mb-6" v-for="(items, index) in categories" :key="index">
                             <li class="uppercase text-xs text-gray-500 mb-2"> {{ index }} </li>
                             <li v-for="(item, index) in items" :key="index">
-                                <nuxt-link :to="item.path" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm"> {{
-                                    item.title }}
+                                <nuxt-link :to="item._path" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm"> 
+                                    {{ item.title }}
                                 </nuxt-link>
+                                <!-- <pre>{{item}}</pre> -->
                             </li>
                         </ul>
                         <ul>
                             <li>
-                                <nuxt-link :to="`/docs/${$route.params.slug}/hosting`"
-                                    class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
+                                <nuxt-link :to="`/docs/${$route.params.slug}/hosting`" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
                                     Hosting
                                 </nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link :to="`/docs/${$route.params.slug}/faq`"
-                                    class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
+                                <nuxt-link :to="`/docs/${$route.params.slug}/faq`" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
                                     FAQ
                                 </nuxt-link>
                             </li>
                         </ul>
                     </div>
                     <div class="px-4 w-9/12 flex flex-wrap h-auto border-l border-gray-100">
-                        <ContentDoc class="w-8/12"/>
+                        <ContentDoc class="w-8/12" />
                         <aside class="w-4/12 lg:flex lg:flex-col">
                             <div class="sticky top-16">
                                 <h2 class="uppercase text-black font-h2 text-lg tracking-wider">
@@ -60,17 +59,10 @@
                                         <h3 class="text-xl mb-2"> Buy our products from Envato Market </h3>
                                         <a href="https://go.templatecookie.com/codecanyon" target="_blank" class="outline-btn">
                                             Buy our products
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-1" width="20" height="20"
-                                                fill="currentColor" viewBox="0 0 256 256">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-1" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
                                                 <rect width="256" height="256" fill="none"></rect>
-                                                <path
-                                                    d="M122.3,71.4l19.8-19.8a44.1,44.1,0,0,1,62.3,62.3l-28.3,28.2a43.9,43.9,0,0,1-62.2,0"
-                                                    fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                    stroke-width="16"></path>
-                                                <path
-                                                    d="M133.7,184.6l-19.8,19.8a44.1,44.1,0,0,1-62.3-62.3l28.3-28.2a43.9,43.9,0,0,1,62.2,0"
-                                                    fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                    stroke-width="16"></path>
+                                                <path d="M122.3,71.4l19.8-19.8a44.1,44.1,0,0,1,62.3,62.3l-28.3,28.2a43.9,43.9,0,0,1-62.2,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                                                <path d="M133.7,184.6l-19.8,19.8a44.1,44.1,0,0,1-62.3-62.3l28.3-28.2a43.9,43.9,0,0,1,62.2,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
                                             </svg>
                                         </a>
                                     </div>
@@ -89,7 +81,9 @@
     import DocCategoryCardItem from '../../../../components/Docs/DocCategoryCardItem.vue';
     export default {
         props: ['product', 'categories'],
-        components: {DocCategoryCardItem},
+        components: {
+            DocCategoryCardItem
+        },
         scrollToTop: true,
         head() {
             const title = this.page.title + ` - ${this.productName}`;
@@ -182,14 +176,24 @@
 
 <script setup>
     import groupBy from 'lodash.groupby';
-    const { path } = useRoute()
-    const { data } = await useAsyncData('home', () => queryContent(`${path}`).sort({ position: 'asc' }).find())
+    const {
+        path
+    } = useRoute()
+    const {
+        data
+    } = await useAsyncData('home', () => queryContent(`${path}`).sort({
+        position: 'asc'
+    }).find())
     const pages = data._rawValue
     console.log(pages)
     const categories = groupBy(pages, 'category')
     const dir = pages[0]._dir
     console.log(dir)
-    const pdata = await useAsyncData('home2', () => queryContent(`/docs/${dir}`).only(['title', 'description']).where({ 'status': { $contains: 'true' } }).find())
+    const pdata = await useAsyncData('home2', () => queryContent(`/docs/${dir}`).only(['title', 'description']).where({
+        'status': {
+            $contains: 'true'
+        }
+    }).find())
     console.log(pdata)
     const [product] = pdata.data._rawValue
     const ptitle = product?.title
