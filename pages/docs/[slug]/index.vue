@@ -3,11 +3,11 @@
     <section class="py-12 lg:pb-12 bg-no-repeat bg-center bg-cover" style="background-image: url('https://www.datocms-assets.com/73511/1653474086-hero_bg.png')">
       <div class="mx-auto max-w-7xl px-4 sm:px-6">
         <div class="text-left">
-          <h1 class="text-4xl md:text-heading-40 textdark mb-6 mx-auto font-semibold">
-            {{ product.title }} - Documentation
+          <h1 class="text-4xl md:text-heading-40 textdark mb-6 mx-auto font-semibold" v-if="product?.title">
+            {{ product?.title }} - Documentation
           </h1>
-          <p class="text-lg md:text-lg textdark mb-8 font-light">
-            {{ product.description }}
+          <p class="text-lg md:text-lg textdark mb-8 font-light" v-if="product?.description">
+            {{ product?.description }}
           </p>
         </div>
       </div>
@@ -134,7 +134,7 @@
   import groupBy from 'lodash.groupby';
   const { path } = useRoute()
   console.log(path)
-  const { data } = await useAsyncData('home', () => queryContent(`${path}`).find())
+  const { data } = await useAsyncData('home', () => queryContent(`${path}`).sort({position:'asc'}).find())
   const pages = data._rawValue
   console.log(pages)
   const categories = groupBy(pages, 'category')
