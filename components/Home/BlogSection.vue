@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-gray-50 mb-20">
+  <div class="relative bg-gray-50 -mb-20">
     <div class="relative mx-auto max-w-7xl py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" data-aos="flip-up">From the blog</h2>
@@ -17,6 +17,7 @@
       </div>
     </div>
   </div>
+  <!-- {{ data }} -->
 </template>
 
 <script>

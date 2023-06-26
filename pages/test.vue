@@ -18,5 +18,8 @@ latestProducts.value = data._rawValue;
 <template>
   <p v-if="error">Something bad happened!</p>
   <p v-else>Data: <code>{{ latestProducts }}</code></p>
-  <div></div>
 </template>
+
+<!-- <template>
+<h1>hello world</h1>
+</template> -->
