@@ -25,7 +25,7 @@ Before you install **Jobpilot** make sure your server meets the following requir
 - XML PHP Extension
 ---
 
-<hightlight-block>
+<!-- <hightlight-block>
 <template>
   <h3 class="!text-white"> Hosting Recommendation </h3>
 
@@ -34,7 +34,7 @@ Before you install **Jobpilot** make sure your server meets the following requir
   We recommend
   <a href="http://go.templatecookie.com/cloudways" target="_blank">Cloudways</a>, <a href="http://go.templatecookie.com/vultr" target="_blank">Vultr</a>, <a href="http://go.templatecookie.com/digitalocean" target="_blank">Digitalocean</a>, and <a href="http://go.templatecookie.com/namecheap" target="_blank"> Namecheap </a>
 </template>
-</hightlight-block>
+</hightlight-block> -->
 
 <div class="bg-gray-200 rounded-xl px-4 py-6">
   <section id="installation-services">
