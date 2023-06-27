@@ -38,19 +38,27 @@
                         </ul>
                     </div>
                     <div class="px-4 w-9/12 flex flex-wrap h-auto border-l border-gray-100">
-                        <ContentDoc class="px-6 pb-0 w-8/12 h-full" />
+                        <ContentDoc class="px-6 pb-0 w-8/12 h-full markdown-body docs-details" />
                         <aside class="px-4 w-4/12 h-auto border-l border-gray-100">
                             <div class="sticky top-16">
                                 <h2 class="uppercase text-black font-h2 text-lg tracking-wider">
                                     Table of contents
                                 </h2>
                                 <nav class="mt-4">
+                                    <ul class="mb-6" v-for="(items, index) in categories" :key="index">
+                                        <!-- <pre>{{items}}</pre> -->
+                                        <li class="uppercase text-xs text-gray-500 mb-2"> {{ index }} </li>
+                                        <li v-for="(item, index) in items?.body?.toc" :key="index">
+                                            <a :href="item?.link" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
+                                                {{ item?.title }}
+                                            </a>
+                                        </li>
+                                    </ul>
                                     <!-- <ul class="mb-2">
-                                        <li @click="tableOfContentsHeadingClick(link)" class="toc-list" :class="{ 'pl-4': link.depth === 3}" v-for="link of item.toc" :key="link.id">
+                                        <li @click="tableOfContentsHeadingClick(link)" class="toc-list" :class="{ 'pl-4': link.depth === 3}" v-for="link of categories.toc" :key="link.id">
                                             <a role="button" class="transition-colors duration-75 mb-2 block text-gray-700 font-light text-sm" :class="{ 'text-blue-500 hover:text-blue-600': link.id === currentlyActiveToc, 'text-black hover:gray-900': link.id !== currentlyActiveToc }" :href="`#${link.id}`">{{ link.text }}</a>
                                         </li>
                                     </ul> -->
-                                    <!-- <pre>{{categories2}}</pre> -->
                                     <div class="bg-blue-200 px-3 py-5 rounded-md mt-4">
                                         <h3 class="text-xl mb-2"> Buy our products from Envato Market </h3>
                                         <a href="https://go.templatecookie.com/codecanyon" target="_blank" class="outline-btn">
