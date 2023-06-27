@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h2>header</h2>
-        <!-- <site-header :data="global?.logo" v-if="global?.logo" /> -->
+        <!-- <h2>header</h2> -->
+        <site-header :data="global?.logo" v-if="global?.logo" />
         <slot />
-        <!-- <site-footer :data="global?.footer[0]" :social="global?.socialMedias" v-if="global && global?.footer" /> -->
-        <h2>footer</h2>
+        <site-footer :data="global?.footer[0]" :social="global?.socialMedias" v-if="global && global?.footer" />
+        <!-- <h2>footer</h2> -->
     </div>
 </template>
 
@@ -15,6 +15,6 @@ import Global from '../graphql/global';
 
 const global = ref({})
 const { data } = await useGraphqlQuery({ query: Global })
-// global.value = data?._rawValue?.global;
+global.value = data?._rawValue?.global;
 // console.log(global);
 </script>

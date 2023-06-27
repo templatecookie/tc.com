@@ -36,8 +36,8 @@
         </div>
       </div>
     </section>
-    <!-- <PricingSection :id="selectedProductData?.id" :plans="selectedProductPlans" :info="selectedProductData"
-      :checkout="true" /> -->
+    <PricingSection :id="selectedProductData?.id" :plans="selectedProductPlans" :info="selectedProductData"
+      :checkout="true" />
   </div>
 </template>
 
@@ -61,32 +61,34 @@ export default {
     ],
   },
 
-  async setup() {
+  setup() {
     const selectedProduct = ref(null);
     const bannerImg = ref("/img-five.png");
     const products = ref({});
-    const { data, error } = await useGraphqlQuery({ query: ALL_PRODUCT_PLANS });
+    const { data, error } = useGraphqlQuery({ query: ALL_PRODUCT_PLANS });
     products.value = data?._rawValue?.allProductplans;
-    console.log(data?._rawValue?.allProductplans);
+    // console.log(products.value[1]);
+
     const selectedProductData = computed(() => {
-      return products.find(elem => elem.product.id === selectedProduct.replace('id', ''));
+      return products.value?.find(elem => elem.product.id === selectedProduct?.replace('id', ''));
     });
     const selectedProductPlans = computed(() => {
       if (selectedProductData) {
-        return selectedProductData.plans.map(item => item.priceplan[0]);
+        return selectedProductData?.plans?.map(item => item.priceplan[0]);
       }
       return [];
     });
     onMounted(() => {
-      selectedProduct = 'id' + products[0].product.id;
+      if (products.value.length > 0)
+        selectedProduct.value = 'id' + products[0]?.product?.id;
 
     });
     return {
       bannerImg,
       products,
       selectedProduct,
-      // selectedProductData,
-      // selectedProductPlans,
+      selectedProductData,
+      selectedProductPlans,
     }
   }
 }

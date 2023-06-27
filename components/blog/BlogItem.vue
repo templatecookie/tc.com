@@ -1,5 +1,4 @@
 <template>
-  <!-- <code>{{ item.image.url }}</code> -->
   <nuxt-link :to="item.slug"
     class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden group bg-white">
     <div class="text-green-500 md:mb-2 lg:mb-0">

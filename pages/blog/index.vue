@@ -27,6 +27,7 @@
 <script>
 import ALL_BLOG_QUERY from '~/graphql/blog/allBlogPosts.js'
 import BlogItem from '../../components/blog/BlogItem.vue';
+import { ref } from 'vue'
 
 export default {
     components: { BlogItem },
@@ -46,20 +47,14 @@ export default {
             ],
         }
     },
-    async asyncData({ app, params, store, $sentry }) {
-        try {
-            const client = app.apolloProvider.defaultClient;
-
-            const { data } = await client.query({
-                query: ALL_BLOG_QUERY,
-            })
-
-            const posts = data.allPosts;
-            return { posts }
-        } catch (error) {
-            $sentry.captureException(error)
+    async setup() {
+        const { data } = await useGraphqlQuery({ query: ALL_BLOG_QUERY });
+        const posts = ref([])
+        posts.value = data._rawValue.allPosts;
+        return {
+            posts
         }
-    },
+    }
 }
 </script>
 
