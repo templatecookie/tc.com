@@ -45,12 +45,12 @@
                                     Table of contents
                                 </h2>
                                 <nav class="mt-4">
-                                    <ul class="mb-6" v-for="(items, index) in categories2" :key="index">
+                                    <ul class="mb-6" v-for="(items, index) in categories" :key="index">
                                         <!-- <pre>{{items}}</pre> -->
                                         <li class="uppercase text-xs text-gray-500 mb-2"> {{ index }} </li>
                                         <li v-for="(item, index) in items?.body?.toc" :key="index">
                                             <a :href="item?.link" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
-                                                {{ item?.title }}
+                                                <pre>{{ item }}</pre>
                                             </a>
                                         </li>
                                     </ul>
@@ -180,6 +180,7 @@
     const {
         path
     } = useRoute()
+    console.log(path)
     const {
         data
     } = await useAsyncData('home', () => queryContent(`${path}`).sort({
