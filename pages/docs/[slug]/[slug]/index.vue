@@ -45,7 +45,7 @@
                                     Table of contents
                                 </h2>
                                 <nav class="mt-4">
-                                    <ul class="mb-6" v-for="(items, index) in categories" :key="index">
+                                    <ul class="mb-6" v-for="(items, index) in categories2" :key="index">
                                         <!-- <pre>{{items}}</pre> -->
                                         <li class="uppercase text-xs text-gray-500 mb-2"> {{ index }} </li>
                                         <li v-for="(item, index) in items?.body?.toc" :key="index">
@@ -83,10 +83,12 @@
 <script>
     import dayjs from 'dayjs'
     import DocCategoryCardItem from '../../../../components/Docs/DocCategoryCardItem.vue';
+    import HighlightBlock from "../../../../components/global/HightlightBlock.vue"
     export default {
         props: ['product', 'categories'],
         components: {
-            DocCategoryCardItem
+            DocCategoryCardItem,
+            HighlightBlock
         },
         scrollToTop: true,
         head() {
