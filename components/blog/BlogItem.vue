@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="item.slug"
+  <nuxt-link :to="pathName"
     class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden group bg-white">
     <div class="text-green-500 md:mb-2 lg:mb-0">
       <img class="w-full lg:h-52 md:h-48 h-48 object-center object-cover" v-if="item.image && item.image.url"
@@ -20,6 +20,11 @@
 <script>
 export default {
   props: ['item'],
+  data(){
+    return {
+      pathName : `blog/${this.item.slug}`
+    }
+  }
 }
 
 </script>
