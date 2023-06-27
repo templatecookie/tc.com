@@ -70,7 +70,8 @@ export default {
     // console.log(products.value[1]);
 
     const selectedProductData = computed(() => {
-      return products.value?.find(elem => elem.product.id === selectedProduct?.replace('id', ''));
+      console.log(selectedProduct);
+      return products.value?.find(elem => elem.product.id === selectedProduct.replace('id', ''));
     });
     const selectedProductPlans = computed(() => {
       if (selectedProductData) {
@@ -82,6 +83,7 @@ export default {
       if (products.value.length > 0)
         selectedProduct.value = 'id' + products[0]?.product?.id;
 
+      console.log(selectedProduct);
     });
     return {
       bannerImg,

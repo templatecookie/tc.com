@@ -92,14 +92,43 @@ export default {
       ],
     }
   },
+  methods: {
+    renderInlineRecord: ({ record, h }) => {
+      switch (record.__typename) {
+        case 'ProductRecord':
+          return h('nuxt-link', { href: `/demo/${record.slug}` }, record.firstName);
+        case 'PostRecord':
+          return h('nuxt-link', { ...transformedMeta, to: `/blog/${record.slug}` }, children,);
+        case 'TagRecord':
+          return h('nuxt-link', { ...transformedMeta, to: `/blog/${record.slug}` }, children,);
+        default:
+          return null;
+      }
+    },
+    renderLinkToRecord: ({ record, h, children, transformedMeta }) => {
+      switch (record.__typename) {
+        case 'TeamMemberRecord':
+          return h(
+            'a',
+            { ...transformedMeta, href: `/team/${record.slug}` },
+            children,
+          );
+        default:
+          return null;
+      }
+    },
+  },
 
   async setup() {
     const { data } = await useGraphqlQuery({ query: BLOG_DETAILS });
     const post = ref([])
-    // posts.value = data._rawValue.allPosts;
-    console.log(data._rawValue);
+    const relatedPosts = ref([])
+    post.value = data._rawValue.post;
+    relatedPosts.value = data._rawValue.allPosts;
+    // console.log(data._rawValue);
     return {
-      post
+      post,
+      relatedPosts
     }
   },
 }
