@@ -2,12 +2,12 @@ import Vue from 'vue';
 const marked = require('marked');
 import dayjs from 'dayjs';
 
-let mixin = {
+export const mixin = {
   methods: {
-    parseMarkdown(markdown){
+    parseMarkdown(markdown) {
       return marked.parse(markdown);
     },
-    formateDate(data){
+    formateDate(data) {
       return dayjs(data).format('D MMMM, YYYY');
     }
   }

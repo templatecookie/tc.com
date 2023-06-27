@@ -26,6 +26,11 @@ export default defineNuxtConfig({
     // '@nuxtjs/sentry',
     // '@nuxtjs/apollo',
   ],
+  plugins: [
+    // { src: "./mixin/global.js", },
+    // { src: "~/plugins/aos.js", mode: "client" },
+    { src: "./plugins/datocms.js", mode: "client" },
+  ],
   // apollo: {
   //   clients: {
   //     default: './graphql/config/config.js'
