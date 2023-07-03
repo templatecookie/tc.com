@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white relative overflow-hidden p-6 border border-gray-f0 rounded-2xl product-card w-full product-card--sm">
     <nuxt-link :to="product._path" :key="product._path" class="product-card__img relative inline-block overflow-hidden rounded-lg  w-full product-card__img-wrapper mb-4">
-    <img :src="resolveImage()" :alt="product.title" class="w-full h-full object-cover overflow-hidden" />
+    <img :src="resolveImage()" :alt="product.title" class="w-full h-full mb-4 object-cover overflow-hidden" />
     <div class="product-card__text">
       <h2 class="textdark mb-3 font-normal text-lg">
         {{ product.title }}

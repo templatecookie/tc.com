@@ -6,7 +6,7 @@
           <div class="flex justify-start lg:w-0 lg:flex-1">
             <nuxt-link to="/">
               <span class="sr-only">Templatecookie</span>
-              <img class="h-8 w-auto sm:h-10" :src="data.url"
+              <img class="h-8 w-auto sm:h-10" :src="data.url" v-if="data && data.url"
                 alt="Templatecookie.com Premium Quality Scripts & HTML Templates">
             </nuxt-link>
           </div>
@@ -166,11 +166,6 @@ export default {
         },
       ]
     };
-  },
-  computed: {
-    global() {
-      return this.$store.getters.getGlobalData;
-    }
   },
 };
 </script>

@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --port=5000",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -19,8 +19,10 @@
     "@heroicons/vue": "^2.0.13",
     "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.14",
+    "dayjs": "^1.11.8",
+    "marked": "^5.1.0",
     "postcss": "^8.4.24",
     "sass": "^1.63.5",
-    "vue-awesome-swiper": "^5.0.1"
+    "vue-datocms": "^4.0.5"
   }
 }

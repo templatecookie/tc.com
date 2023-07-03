@@ -15,12 +15,21 @@ export default defineNuxtConfig({
       ],
     }
   },
+  css: [
+    // SCSS file in the project
+    "~/assets/scss/app.scss",
+  ],
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
     '@nuxt/image'
     // '@nuxtjs/sentry',
     // '@nuxtjs/apollo',
+  ],
+  plugins: [
+    // { src: "./mixin/global.js", },
+    // { src: "~/plugins/aos.js", mode: "client" },
+    { src: "./plugins/datocms.js", mode: "client" },
   ],
   // apollo: {
   //   clients: {
