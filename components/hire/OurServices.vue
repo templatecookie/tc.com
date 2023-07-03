@@ -10,7 +10,7 @@
       </div>
       <div class="mt-20">
         <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="pt-6" v-for="(item, index) in services" :key="index" :data-aos="item.aos" :data-aos-delay="100 * index">
+          <div class="pt-6 aos" v-for="(item, index) in services" :key="index" :data-aos="item.aos" :data-aos-delay="100 * index">
             <div class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
               <div class="-mt-6">
                 <div>

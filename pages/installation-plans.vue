@@ -4,12 +4,13 @@
     <section class="realtive bg-no-repeat bg-center bg-cover" :style="{ backgroundImage: `url(${bannerImg})` }">
       <div class="mx-auto max-w-7xl py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <h1 class="text-4xl md:text-heading-40 textdark mb-6 max-w-680 mx-auto font-semibold">
+          <h1 class="text-4xl md:text-heading-40 text-dark mb-6 max-w-[680px] mx-auto font-semibold">
             Installation Plans
           </h1>
-          <p class="text-lg md:text-lg textdark max-w-full md:max-w-536 mx-auto font-light">
+          <p class="text-lg md:text-lg text-dark max-w-full md:max-w-536 mx-auto font-light">
             These plans are only available to those who have bought one or more products from us before. If you haven't
-            purchased yet, check our <a class="text-blue-600" href="https://1.envato.market/EaNJ2X">codecanyon profile</a>
+            purchased yet, check our <a class="text-blue-600" href="https://1.envato.market/EaNJ2X">codecanyon
+              profile</a>
           </p>
         </div>
       </div>
@@ -42,65 +43,65 @@
 </template>
 
 <script>
-import ALL_PRODUCT_PLANS from '../graphql/allProductPlans'
-import PricingSection from '~/components/PricingSection.vue'
-import useGraphqlQuery from '~/composables/useGraphqlQuery';
-import { ref, computed, onMounted } from 'vue';
+  import ALL_PRODUCT_PLANS from '../graphql/allProductPlans'
+  import PricingSection from '~/components/PricingSection.vue'
+  import useGraphqlQuery from '~/composables/useGraphqlQuery';
+  import { ref, computed, onMounted } from 'vue';
 
-export default {
-  head: {
-    title: "Installation Plans | Templatecookie Products",
-    meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      {
-        hid: "description",
-        name: "description",
-        content: "Buy our premium installation support package, our expert team will help you get your app installed & configured."
+  export default {
+    head: {
+      title: "Installation Plans | Templatecookie Products",
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          hid: "description",
+          name: "description",
+          content: "Buy our premium installation support package, our expert team will help you get your app installed & configured."
+        }
+      ],
+    },
+
+    setup() {
+      const selectedProduct = ref(null);
+      const bannerImg = ref("/img-five.png");
+      const products = ref({});
+      const { data, error } = useGraphqlQuery({ query: ALL_PRODUCT_PLANS });
+      products.value = data?._rawValue?.allProductplans;
+      // console.log(products.value[1]);
+
+      const selectedProductData = computed(() => {
+        console.log(selectedProduct);
+        return products.value?.find(elem => elem.product.id === selectedProduct.replace('id', ''));
+      });
+      const selectedProductPlans = computed(() => {
+        if (selectedProductData) {
+          return selectedProductData?.plans?.map(item => item.priceplan[0]);
+        }
+        return [];
+      });
+      onMounted(() => {
+        if (products.value.length > 0)
+          selectedProduct.value = 'id' + products[0]?.product?.id;
+
+        console.log(selectedProduct);
+      });
+      return {
+        bannerImg,
+        products,
+        selectedProduct,
+        selectedProductData,
+        selectedProductPlans,
       }
-    ],
-  },
-
-  setup() {
-    const selectedProduct = ref(null);
-    const bannerImg = ref("/img-five.png");
-    const products = ref({});
-    const { data, error } = useGraphqlQuery({ query: ALL_PRODUCT_PLANS });
-    products.value = data?._rawValue?.allProductplans;
-    // console.log(products.value[1]);
-
-    const selectedProductData = computed(() => {
-      console.log(selectedProduct);
-      return products.value?.find(elem => elem.product.id === selectedProduct.replace('id', ''));
-    });
-    const selectedProductPlans = computed(() => {
-      if (selectedProductData) {
-        return selectedProductData?.plans?.map(item => item.priceplan[0]);
-      }
-      return [];
-    });
-    onMounted(() => {
-      if (products.value.length > 0)
-        selectedProduct.value = 'id' + products[0]?.product?.id;
-
-      console.log(selectedProduct);
-    });
-    return {
-      bannerImg,
-      products,
-      selectedProduct,
-      selectedProductData,
-      selectedProductPlans,
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
-.responsive-overly {
-  @media (max-width: 1199px) {
-    background-position: center !important;
-    background-size: cover !important;
+  .responsive-overly {
+    @media (max-width: 1199px) {
+      background-position: center !important;
+      background-size: cover !important;
+    }
   }
-}
 </style>

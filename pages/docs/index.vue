@@ -4,11 +4,12 @@
       style="background-image: url('https://www.datocms-assets.com/73511/1653474086-hero_bg.png')">
       <div class="mx-auto max-w-7xl px-4 sm:px-6">
         <div class="text-center">
-          <h1 class="text-4xl md:text-heading-40 textdark mb-6 max-w-680 mx-auto font-semibold">
+          <h1 class="text-4xl md:text-heading-40 text-dark mb-6 max-w-[680px] mx-auto font-semibold">
             Templatecookie Docs
           </h1>
-          <p class="text-lg md:text-lg textdark mb-8 max-w-full md:max-w-536 mx-auto font-light">
-            Don't have previous experience using our products? Read the documentation to learn more about the complex features and topics.
+          <p class="text-lg md:text-lg text-dark mb-8 max-w-full md:max-w-536 mx-auto font-light">
+            Don't have previous experience using our products? Read the documentation to learn more about the complex
+            features and topics.
           </p>
         </div>
       </div>
@@ -18,7 +19,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           <div v-for="(item, index) in products" :key="index" class="flex items-stretch">
             <!-- {{item}} -->
-            <ProductItem :product="item"/>
+            <ProductItem :product="item" />
           </div>
         </div>
       </div>
@@ -27,43 +28,43 @@
 </template>
 
 <script>
-export default {
-  head() {
-    const title = 'Templatecookie Product Documentation';
-    const description = "Don't have previous experience using our products? Read the documentation to learn more about the features and topics?";
-    return {
-      title: title,
-      meta: [
-        { hid: 'description', name: 'description', content: description },
-        // Open Graph
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'og:description', property: 'og:description', content: description },
-        // Twitter Card
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'twitter:description', name: 'twitter:description', content: description }
-      ]
-    }
-  },
-  data() {
-    return {
-      bannerImg: "/images/img-five.png",
-    };
-  },
-  // async asyncData({ $content, $sentry }) {
-  //   try {
-  //     const products = await $content("docs", {deep: true})
-  //       .where({slug: {$eq: "index"}})
-  //       .where({status: true })
-  //       .sortBy("position", "asc")
-  //       .fetch();
-  //     return {
-  //       products
-  //     };
-  //   } catch (error) {
-  //     $sentry.captureException(error)
-  //   }
-  // },
-}
+  export default {
+    head() {
+      const title = 'Templatecookie Product Documentation';
+      const description = "Don't have previous experience using our products? Read the documentation to learn more about the features and topics?";
+      return {
+        title: title,
+        meta: [
+          { hid: 'description', name: 'description', content: description },
+          // Open Graph
+          { hid: 'og:title', property: 'og:title', content: title },
+          { hid: 'og:description', property: 'og:description', content: description },
+          // Twitter Card
+          { hid: 'twitter:title', name: 'twitter:title', content: title },
+          { hid: 'twitter:description', name: 'twitter:description', content: description }
+        ]
+      }
+    },
+    data() {
+      return {
+        bannerImg: "/images/img-five.png",
+      };
+    },
+    // async asyncData({ $content, $sentry }) {
+    //   try {
+    //     const products = await $content("docs", {deep: true})
+    //       .where({slug: {$eq: "index"}})
+    //       .where({status: true })
+    //       .sortBy("position", "asc")
+    //       .fetch();
+    //     return {
+    //       products
+    //     };
+    //   } catch (error) {
+    //     $sentry.captureException(error)
+    //   }
+    // },
+  }
 </script>
 <script setup>
   import ProductItem from '~/components/Docs/ProductItem.vue'

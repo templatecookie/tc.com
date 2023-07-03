@@ -14,7 +14,7 @@
         <div class="mt-8 grid grid-cols-3 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-4">
           <div class="col-span-1 flex justify-center bg-gray-50 py-8 px-8" v-for="(item, index) in technologies" :key="index">
             <div class="sr-only">{{ item.name }}</div>
-            <img class="max-h-12" :src="item.logo" :alt="item.name" data-aos="flip-up" :data-aos-delay="100 * index">
+            <img class="max-h-12 aos" :src="item.logo" :alt="item.name" data-aos="flip-up" :data-aos-delay="100 * index">
           </div>
         </div>
       </div>

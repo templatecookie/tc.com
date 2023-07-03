@@ -21,7 +21,7 @@
         </ul>
       </div>
 
-      <h2 class="textdark text-2xl md:text-3xl lg:text-heading-40 font-semibold tracking-01">
+      <h2 class="text-dark text-2xl md:text-3xl lg:text-heading-40 font-semibold tracking-01">
         {{ name }}
       </h2>
     </div>
@@ -29,22 +29,22 @@
 </template>
 
 <script>
-export default {
-  name: "Breadcrumb",
-  props: {
-    name: {
-      type: String,
-      required: true,
+  export default {
+    name: "Breadcrumb",
+    props: {
+      name: {
+        type: String,
+        required: true,
+      },
+      category: {
+        type: [Object, null],
+        required: true,
+      },
     },
-    category: {
-      type: [Object, null],
-      required: true,
+    data() {
+      return {
+        bgimage: require('../static/images/breadcrumb.png'),
+      };
     },
-  },
-  data() {
-    return {
-      bgimage: require('../static/images/breadcrumb.png'),
-    };
-  },
-};
+  };
 </script>

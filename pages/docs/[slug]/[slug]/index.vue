@@ -1,12 +1,13 @@
 <template>
     <div>
-        <section class="py-12 lg:pb-12 bg-no-repeat bg-center bg-cover" style="background-image: url('https://www.datocms-assets.com/73511/1653474086-hero_bg.png')">
+        <section class="py-12 lg:pb-12 bg-no-repeat bg-center bg-cover"
+            style="background-image: url('https://www.datocms-assets.com/73511/1653474086-hero_bg.png')">
             <div class="mx-auto max-w-7xl px-4 sm:px-6">
                 <div class="text-left">
-                    <h1 class="text-4xl md:text-heading-40 textdark mb-6 mx-auto font-semibold">
+                    <h1 class="text-4xl md:text-heading-40 text-dark mb-6 mx-auto font-semibold">
                         {{ product?.title }} - Documentation
                     </h1>
-                    <p class="text-lg md:text-lg textdark mb-8 font-light">
+                    <p class="text-lg md:text-lg text-dark mb-8 font-light">
                         {{ product?.description }}
                     </p>
                 </div>
@@ -19,19 +20,22 @@
                         <ul class="mb-6" v-for="(items, index) in categories" :key="index">
                             <li class="uppercase text-xs text-gray-500 mb-2"> {{ index }} </li>
                             <li v-for="(item, index) in items" :key="index">
-                                <a :href="item._path" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
+                                <a :href="item._path"
+                                    class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
                                     {{ item.title }}
                                 </a>
                             </li>
                         </ul>
                         <ul>
                             <li>
-                                <a :href="`/docs/${$route.params.slug}/hosting`" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
+                                <a :href="`/docs/${$route.params.slug}/hosting`"
+                                    class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
                                     Hosting
                                 </a>
                             </li>
                             <li>
-                                <a :href="`/docs/${$route.params.slug}/faq`" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
+                                <a :href="`/docs/${$route.params.slug}/faq`"
+                                    class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
                                     FAQ
                                 </a>
                             </li>
@@ -49,7 +53,8 @@
                                         <!-- <pre>{{items}}</pre> -->
                                         <li class="uppercase text-xs text-gray-500 mb-2"> {{ index }} </li>
                                         <li v-for="(item, index) in items?.body?.toc" :key="index">
-                                            <a :href="item?.link" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
+                                            <a :href="item?.link"
+                                                class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm">
                                                 <pre>{{ item }}</pre>
                                             </a>
                                         </li>
@@ -61,12 +66,20 @@
                                     </ul> -->
                                     <div class="bg-blue-200 px-3 py-5 rounded-md mt-4">
                                         <h3 class="text-xl mb-2"> Buy our products from Envato Market </h3>
-                                        <a href="https://go.templatecookie.com/codecanyon" target="_blank" class="outline-btn">
+                                        <a href="https://go.templatecookie.com/codecanyon" target="_blank"
+                                            class="outline-btn">
                                             Buy our products
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-1" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-1" width="20" height="20"
+                                                fill="currentColor" viewBox="0 0 256 256">
                                                 <rect width="256" height="256" fill="none"></rect>
-                                                <path d="M122.3,71.4l19.8-19.8a44.1,44.1,0,0,1,62.3,62.3l-28.3,28.2a43.9,43.9,0,0,1-62.2,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
-                                                <path d="M133.7,184.6l-19.8,19.8a44.1,44.1,0,0,1-62.3-62.3l28.3-28.2a43.9,43.9,0,0,1,62.2,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                                                <path
+                                                    d="M122.3,71.4l19.8-19.8a44.1,44.1,0,0,1,62.3,62.3l-28.3,28.2a43.9,43.9,0,0,1-62.2,0"
+                                                    fill="none" stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="16"></path>
+                                                <path
+                                                    d="M133.7,184.6l-19.8,19.8a44.1,44.1,0,0,1-62.3-62.3l28.3-28.2a43.9,43.9,0,0,1,62.2,0"
+                                                    fill="none" stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="16"></path>
                                             </svg>
                                         </a>
                                     </div>
@@ -97,32 +110,32 @@
             return {
                 title: title,
                 meta: [{
-                        hid: 'description',
-                        name: 'description',
-                        content: description
-                    },
-                    // Open Graph
-                    {
-                        hid: 'og:title',
-                        property: 'og:title',
-                        content: title
-                    },
-                    {
-                        hid: 'og:description',
-                        property: 'og:description',
-                        content: description
-                    },
-                    // Twitter Card
-                    {
-                        hid: 'twitter:title',
-                        name: 'twitter:title',
-                        content: title
-                    },
-                    {
-                        hid: 'twitter:description',
-                        name: 'twitter:description',
-                        content: description
-                    }
+                    hid: 'description',
+                    name: 'description',
+                    content: description
+                },
+                // Open Graph
+                {
+                    hid: 'og:title',
+                    property: 'og:title',
+                    content: title
+                },
+                {
+                    hid: 'og:description',
+                    property: 'og:description',
+                    content: description
+                },
+                // Twitter Card
+                {
+                    hid: 'twitter:title',
+                    name: 'twitter:title',
+                    content: title
+                },
+                {
+                    hid: 'twitter:description',
+                    name: 'twitter:description',
+                    content: description
+                }
                 ]
             }
         },
@@ -197,7 +210,7 @@
     const pages2 = newData.data._rawValue
     const categories = groupBy(pages2, 'category')
 
-    
+
     //For Product Title and Description
     const pdata = await useAsyncData('home2', () => queryContent(`/docs/${dir}`).only(['title', 'description']).where({
         'status': {

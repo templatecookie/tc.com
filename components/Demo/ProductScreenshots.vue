@@ -2,10 +2,10 @@
   <div class="py-20 lg:pt-124" :id="data.sectionId ? data.sectionId : data.id">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="lg:max-w-536 m-auto text-center mb-10 lg:mb-16" v-if="data.info && data.info[0]">
-        <h2 class="textdark text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 tracking-01">
+        <h2 class="text-dark text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 tracking-01">
           {{ data.info[0].title }}
         </h2>
-        <p class="textdark text-base sm:text-lg mb-6 lg:mb-9 font-light">
+        <p class="text-dark text-base sm:text-lg mb-6 lg:mb-9 font-light">
           {{ data.info[0].description }}
         </p>
       </div>
@@ -41,35 +41,35 @@
 </template>
 
 <script>
-// import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-// import "swiper/css/swiper.css";
+  // import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+  // import "swiper/css/swiper.css";
 
-export default {
-  props: ['data'],
-  components: {
-    Swiper,
-    SwiperSlide
-  },
-  data() {
-    return {
-      swiperOptionTwo: {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        centeredSlides: true,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
+  export default {
+    props: ['data'],
+    components: {
+      Swiper,
+      SwiperSlide
+    },
+    data() {
+      return {
+        swiperOptionTwo: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+          centeredSlides: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
         },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      },
+      }
     }
   }
-}
 </script>

@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   ],
   plugins: [
     // { src: "./mixin/global.js", },
-    // { src: "~/plugins/aos.js", mode: "client" },
+    { src: "./plugins/aos.js", mode: "client" },
     { src: "./plugins/datocms.js", mode: "client" },
   ],
 

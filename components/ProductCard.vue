@@ -4,7 +4,8 @@
     :class="large ? 'product-card--lg' : 'product-card--sm'">
     <nuxt-link to="/"
       class="product-card__img relative inline-block overflow-hidden rounded-lg w-full product-card__img-wrapper">
-      <nuxt-img :src="product.banner.url" alt="product-img" class="w-full h-full object-cover overflow-hidden"></nuxt-img>
+      <nuxt-img :src="product.banner.url" alt="product-img"
+        class="w-full h-full object-cover overflow-hidden"></nuxt-img>
     </nuxt-link>
 
     <div class="product-card__text" :class="large ? 'p-8' : 'p-6'">
@@ -13,7 +14,7 @@
         {{ product.category.name }}
       </div>
 
-      <h2 class="textdark mb-3 font-normal" :class="large ? 'text-2xl' : 'text-lg'">
+      <h2 class="text-dark mb-3 font-normal" :class="large ? 'text-2xl' : 'text-lg'">
         {{ product.name }}
       </h2>
 
@@ -31,8 +32,8 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3.75 12H20.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                     stroke-linejoin="round" />
-                  <path d="M13.5 5.25L20.25 12L13.5 18.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
+                  <path d="M13.5 5.25L20.25 12L13.5 18.75" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </span>
             </nuxt-link>
@@ -44,120 +45,120 @@
 </template>
 
 <script>
-export default {
-  name: "ProductCard",
-  props: {
-    large: {
-      type: Boolean,
-      required: false,
-      default: false,
+  export default {
+    name: "ProductCard",
+    props: {
+      large: {
+        type: Boolean,
+        required: false,
+        default: false,
+      },
+      product: {
+        type: Object,
+        required: true,
+      }
     },
-    product: {
-      type: Object,
-      required: true,
-    }
-  },
-};
+  };
 </script>
 
 <style lang="scss" scoped>
-.product-card {
-  &--lg {
-    @media (max-width: 575px) {
-      padding: 24px;
-    }
-
-    .product-card {
-      &__img {
-        height: 296px;
-
-        @media (max-width: 640px) {
-          height: 200px;
-        }
+  .product-card {
+    &--lg {
+      @media (max-width: 575px) {
+        padding: 24px;
       }
 
-      &__button {
-        height: 56px;
-        width: 196px;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        justify-content: center;
+      .product-card {
+        &__img {
+          height: 296px;
 
-        @media (max-width: 640px) {
-          height: 45px;
-          width: 150px;
+          @media (max-width: 640px) {
+            height: 200px;
+          }
         }
 
-        span {
-          margin-left: 12px;
-        }
-
-        &-cart {
-          width: 56px;
+        &__button {
           height: 56px;
-          display: flex;
-          align-items: center;
+          width: 196px;
+          text-align: center;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
           justify-content: center;
 
           @media (max-width: 640px) {
             height: 45px;
-            width: 45px;
+            width: 150px;
+          }
+
+          span {
+            margin-left: 12px;
+          }
+
+          &-cart {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @media (max-width: 640px) {
+              height: 45px;
+              width: 45px;
+            }
           }
         }
       }
     }
-  }
 
-  &--sm {
-    .product-card {
-      &__button {
-        height: 45px;
-        width: 150px;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        justify-content: center;
-
-        span {
-          margin-left: 8px;
-        }
-
-        &-cart {
-          width: 44px;
-          height: 44px;
-          display: flex;
-          align-items: center;
+    &--sm {
+      .product-card {
+        &__button {
+          height: 45px;
+          width: 150px;
+          text-align: center;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
           justify-content: center;
+
+          span {
+            margin-left: 8px;
+          }
+
+          &-cart {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
       }
     }
-  }
 
-  &__img {
-    img {
-      transform: scale(1);
-      transition: all 0.4s linear;
+    &__img {
+      img {
+        transform: scale(1);
+        transition: all 0.4s linear;
+      }
     }
-  }
 
-  &__text {
-    p {
-      @media (max-width: 640px) {
-        margin-bottom: 0px;
+    &__text {
+      p {
+        @media (max-width: 640px) {
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    &__button {
+      transition: all 0.3s ease-in;
+
+      &:hover {
+        color: #fff;
+        background-color: #0b63e5;
       }
     }
   }
-
-  &__button {
-    transition: all 0.3s ease-in;
-
-    &:hover {
-      color: #fff;
-      background-color: #0b63e5;
-    }
-  }
-}
 </style>
