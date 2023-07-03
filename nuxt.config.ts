@@ -22,7 +22,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxtjs/google-fonts'
     // '@nuxtjs/sentry',
     // '@nuxtjs/apollo',
   ],
@@ -31,6 +32,17 @@ export default defineNuxtConfig({
     // { src: "~/plugins/aos.js", mode: "client" },
     { src: "./plugins/datocms.js", mode: "client" },
   ],
+
+  googleFonts: {
+    display: 'swap',
+    families: {
+      Lexend: [300, 400, 500, 600, 700, 800],
+      "Open+Sans": {
+        wght: [100, 300, 400, 500, 600, 700, 800],
+        ital: [100, 300, 400, 500,]
+      },
+    }
+  },
   // apollo: {
   //   clients: {
   //     default: './graphql/config/config.js'

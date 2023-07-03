@@ -33,8 +33,8 @@ module.exports = {
         "primary-500": "#0B63E5",
       },
       fontFamily: {
-        lexend: ["Lexend", "sans-serif"],
-        opensans: ["Open Sans", "sans-serif"],
+        lexend: "'Lexend', sans-serif",
+        opensans: "'Open Sans', sans-serif",
       },
       fontSize: {
         "heading-40": ["40px", "48px"],
