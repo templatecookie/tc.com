@@ -1,4 +1,3 @@
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   runtimeConfig: {
@@ -10,7 +9,6 @@ export default defineNuxtConfig({
     head: {
       title: 'Templatecookie.com',
       meta: [
-        // <meta name="description" content="My amazing site">
         { name: 'description', content: 'My amazing site.' }
       ],
     }
@@ -18,12 +16,13 @@ export default defineNuxtConfig({
   css: [
     // SCSS file in the project
     "~/assets/scss/app.scss",
+    // "aos/dist/aos.css",
   ],
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
     '@nuxt/image',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
     // '@nuxtjs/sentry',
     // '@nuxtjs/apollo',
   ],
@@ -32,6 +31,9 @@ export default defineNuxtConfig({
     { src: "./plugins/aos.js", mode: "client" },
     { src: "./plugins/datocms.js", mode: "client" },
   ],
+//   purgeCSS: {
+//     whitelist: ["aos-init", "aos-animate", "data-aos-delay", "data-aos-duration", "fade-up", "zoom-in"],
+// },
 
   googleFonts: {
     display: 'swap',

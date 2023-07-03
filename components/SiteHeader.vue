@@ -142,7 +142,6 @@
 </template>
 <script>
 export default {
-  name: "Header",
   props: ['data'],
   data() {
     return {
