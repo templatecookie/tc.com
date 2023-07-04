@@ -7,7 +7,7 @@
           <h1 class="text-4xl md:text-heading-40 text-dark mb-6 max-w-[680px] mx-auto font-semibold">
             Templatecookie Docs
           </h1>
-          <p class="text-lg md:text-lg text-dark mb-8 max-w-full md:max-w-536 mx-auto font-light">
+          <p class="text-lg md:text-lg text-dark mb-8 max-w-full md:max-w-[536px] mx-auto font-light">
             Don't have previous experience using our products? Read the documentation to learn more about the complex
             features and topics.
           </p>
