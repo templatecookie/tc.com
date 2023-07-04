@@ -6,7 +6,7 @@
           <div class="flex justify-start lg:w-0 lg:flex-1">
             <nuxt-link to="/">
               <span class="sr-only">Templatecookie</span>
-              <img class="h-8 w-auto sm:h-10" :src="data.url" v-if="data && data.url"
+              <img class="h-8 w-auto sm:h-10" :src="hdata.logo.url" v-if="hdata"
                 alt="Templatecookie.com Premium Quality Scripts & HTML Templates">
             </nuxt-link>
           </div>
@@ -39,7 +39,7 @@
                   <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                     <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
                       <nuxt-link :to="{ name: 'demo-slug', params: { slug: product.slug } }"
-                        v-for="(product, index) in global.selectedProducts" :key="index"
+                        v-for="(product, index) in hdata.selectedProducts" :key="index"
                         class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50">
                         <div
                           class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-primary text-white sm:h-12 sm:w-12">
@@ -87,7 +87,7 @@
               <div class="px-5 pt-5 pb-6">
                 <div class="flex items-center justify-between">
                   <div>
-                    <img class="h-8 w-auto" :src="data.url"
+                    <img class="h-8 w-auto" :src="hdata.logo.url"
                       alt="Templatecookie.com Premium Quality Scripts & HTML Templates">
                   </div>
                   <div class="-mr-2">
@@ -103,7 +103,7 @@
                 </div>
                 <div class="mt-6">
                   <nav class="grid grid-cols-1 gap-7">
-                    <nuxt-link to="/" v-for="(product, index) in global.selectedProducts" :key="index"
+                    <nuxt-link to="/" v-for="(product, index) in hdata.selectedProducts" :key="index"
                       class="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50">
                       <div
                         class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-primary text-white">
@@ -147,6 +147,7 @@ export default {
     return {
       solutionStatus: false,
       mobileNav: false,
+      hdata: this.data,
       menuItems: [
         {
           name: "Installation Plans",
@@ -166,5 +167,8 @@ export default {
       ]
     };
   },
+  mounted() {
+    console.log(this.hdata.logo)
+  }
 };
 </script>

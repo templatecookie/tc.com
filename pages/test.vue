@@ -10,10 +10,6 @@ const latestProducts = ref([])
 
 const { data, error } = await useGraphqlQuery({ query: rawData });
 latestProducts.value = data._rawValue;
-
-// console.error(error);
-// console.log(data);
-// console.log(error);
 </script>
 <template>
   <p v-if="error">Something bad happened!</p>

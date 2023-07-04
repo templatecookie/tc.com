@@ -5,6 +5,7 @@ export default defineNuxtConfig({
       datoCmsToken: `ce32bbd78955d348af32c5f3fb0417`,
     }
   },
+
   app: {
     head: {
       title: 'Templatecookie.com',
@@ -13,11 +14,13 @@ export default defineNuxtConfig({
       ],
     }
   },
+
   css: [
     // SCSS file in the project
     "~/assets/scss/app.scss",
     // "aos/dist/aos.css",
   ],
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
@@ -26,25 +29,17 @@ export default defineNuxtConfig({
     // '@nuxtjs/sentry',
     // '@nuxtjs/apollo',
   ],
+
   plugins: [
     // { src: "./mixin/global.js", },
-    { src: "./plugins/aos.js", mode: "client" },
+    { src: "@/plugins/aos", mode: "client" },
     { src: "./plugins/datocms.js", mode: "client" },
   ],
-//   purgeCSS: {
-//     whitelist: ["aos-init", "aos-animate", "data-aos-delay", "data-aos-duration", "fade-up", "zoom-in"],
-// },
 
-  googleFonts: {
-    display: 'swap',
-    families: {
-      Lexend: [300, 400, 500, 600, 700, 800],
-      "Open+Sans": {
-        wght: [100, 300, 400, 500, 600, 700, 800],
-        ital: [100, 300, 400, 500,]
-      },
-    }
-  },
+  //   purgeCSS: {
+  //     whitelist: ["aos-init", "aos-animate", "data-aos-delay", "data-aos-duration", "fade-up", "zoom-in"],
+  // },
+
   // apollo: {
   //   clients: {
   //     default: './graphql/config/config.js'
@@ -55,4 +50,14 @@ export default defineNuxtConfig({
   //   // publishRelease: true,
   //   // sourceMapStyle: 'hidden-source-map',
   // }
+  googleFonts: {
+    display: 'swap',
+    families: {
+      Lexend: [300, 400, 500, 600, 700, 800],
+      "Open+Sans": {
+        wght: [100, 300, 400, 500, 600, 700, 800],
+        ital: [100, 300, 400, 500,]
+      },
+    }
+  },
 })
