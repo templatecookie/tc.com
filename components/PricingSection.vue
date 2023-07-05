@@ -95,5 +95,8 @@ export default {
       console.log('Paddle Loaded');
     }
   },
+  mounted() {
+        console.log(this.id)
+      }
 }
 </script>
