@@ -1,7 +1,7 @@
 // Product Demo Page Query
-import gql from 'graphql-tag';
 
-export default gql`
+
+export default `
 query product($slug: String!){
   product(filter: {slug: {eq: $slug}}) {
     id
