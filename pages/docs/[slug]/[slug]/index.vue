@@ -90,12 +90,15 @@
                 </div>
             </div>
         </section>
+        <pre>
+            {{ data }}
+        </pre>
     </div>
 </template>
 
 <script>
     import dayjs from 'dayjs'
-    import DocCategoryCardItem from '../../../../components/Docs/DocCategoryCardItem.vue';
+    import DocCategoryCardItem from '../../../../components/Docs/CategoryCardItem.vue';
     import HighlightBlock from "../../../../components/global/HightlightBlock.vue"
     export default {
         props: ['product', 'categories'],
@@ -165,7 +168,7 @@
         mounted() {
             this.path = this.$route.path;
             this.fetchData();
-            console.log(this.page.body);
+            console.log(this.page);
             this.observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     const id = entry.target.getAttribute("id");
@@ -190,26 +193,23 @@
 
 <script setup>
     import groupBy from 'lodash.groupby';
-    const {
-        path
-    } = useRoute()
-    console.log(path)
-    const {
-        data
-    } = await useAsyncData('home', () => queryContent(`${path}`).sort({
+    const { path } = useRoute()
+
+    const { data } = await useAsyncData('home', () => queryContent(`${path}`).sort({
         position: 'asc'
     }).findOne())
-    console.log(data)
+
+
     const pages = data._rawValue
-    console.log(pages)
-    const categories2 = groupBy(pages, 'category')
     const dir = pages._dir
+    const categories2 = groupBy(pages, 'category')
+
     const newData = await useAsyncData('home', () => queryContent(`/docs/${dir}`).sort({
         position: 'asc'
     }).find())
+
     const pages2 = newData.data._rawValue
     const categories = groupBy(pages2, 'category')
-
 
     //For Product Title and Description
     const pdata = await useAsyncData('home2', () => queryContent(`/docs/${dir}`).only(['title', 'description']).where({
@@ -217,17 +217,8 @@
             $contains: 'true'
         }
     }).find())
+
     const [product] = pdata.data._rawValue
     const ptitle = product.title
     const pdescription = product.description
-
-    // For Toc
-    // const pdata = await useAsyncData('home2', () => queryContent(`${dir}`).only(['title', 'description']).where({
-    //         'status': {
-    //             $contains: 'true'
-    //         }
-    //     }).find())
-    //     const [product] = pdata.data._rawValue
-    //     const ptitle = product.title
-    //     const pdescription = product.description
 </script>

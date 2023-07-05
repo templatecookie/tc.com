@@ -18,8 +18,7 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 py-20">
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           <div v-for="(item, index) in products" :key="index" class="flex items-stretch">
-            <!-- {{item}} -->
-            <ProductItem :product="item" />
+            <DocsProductItem :product="item"/>
           </div>
         </div>
       </div>
@@ -27,48 +26,30 @@
   </div>
 </template>
 
-<script>
-  export default {
-    head() {
-      const title = 'Templatecookie Product Documentation';
-      const description = "Don't have previous experience using our products? Read the documentation to learn more about the features and topics?";
-      return {
-        title: title,
-        meta: [
-          { hid: 'description', name: 'description', content: description },
-          // Open Graph
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'og:description', property: 'og:description', content: description },
-          // Twitter Card
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'twitter:description', name: 'twitter:description', content: description }
-        ]
-      }
-    },
-    data() {
-      return {
-        bannerImg: "/images/img-five.png",
-      };
-    },
-    // async asyncData({ $content, $sentry }) {
-    //   try {
-    //     const products = await $content("docs", {deep: true})
-    //       .where({slug: {$eq: "index"}})
-    //       .where({status: true })
-    //       .sortBy("position", "asc")
-    //       .fetch();
-    //     return {
-    //       products
-    //     };
-    //   } catch (error) {
-    //     $sentry.captureException(error)
-    //   }
-    // },
-  }
-</script>
 <script setup>
-  import ProductItem from '~/components/Docs/ProductItem.vue'
-  const { data } = await useAsyncData('home', () => queryContent('/docs').where({ 'status': { $contains: 'true' } }).where({ 'category': { $contains: 'Getting Started' } }).find())
+  const bannerImg = ref("/images/img-five.png");
+  const title = ref('Templatecookie Product Documentation')
+  const description = ref("Don't have previous experience using our products? Read the documentation to learn more about the features and topics?")
+
+  // This will be reactive even you change title/description above
+  useHead({
+    title,
+    meta: [
+      { name: 'description', content: description },
+      // Open Graph
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: description },
+      // Twitter Card
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:description', content: description }
+    ]
+  })
+
+  const { data } = await useAsyncData('docs', () => queryContent('/docs')
+        .where({ 'status': { $contains: 'true' } })
+        .where({ 'category': { $contains: 'Getting Started' } })
+        .find()
+  )
   const products = data._rawValue
   console.log(products)
 </script>

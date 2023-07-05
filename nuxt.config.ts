@@ -39,6 +39,12 @@ export default defineNuxtConfig({
   //   purgeCSS: {
   //     whitelist: ["aos-init", "aos-animate", "data-aos-delay", "data-aos-duration", "fade-up", "zoom-in"],
   // },
+  content: {
+    api: {
+      baseURL: '/api/_my_content'
+    },
+    toc: { depth: 2, searchDepth: 2 }
+  },
 
   // apollo: {
   //   clients: {
@@ -60,4 +66,9 @@ export default defineNuxtConfig({
       },
     }
   },
+
+
+  devtools: {
+    enabled: true,
+  }
 })
