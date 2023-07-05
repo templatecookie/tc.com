@@ -1,4 +1,3 @@
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   runtimeConfig: {
@@ -6,6 +5,7 @@ export default defineNuxtConfig({
       datoCmsToken: `ce32bbd78955d348af32c5f3fb0417`,
     }
   },
+
   app: {
     head: {
       title: 'Templatecookie.com',
@@ -15,10 +15,12 @@ export default defineNuxtConfig({
       ],
     }
   },
+
   css: [
     // SCSS file in the project
     "~/assets/scss/app.scss",
   ],
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
@@ -26,11 +28,13 @@ export default defineNuxtConfig({
     // '@nuxtjs/sentry',
     // '@nuxtjs/apollo',
   ],
-  plugins: [
-    // { src: "./mixin/global.js", },
-    // { src: "~/plugins/aos.js", mode: "client" },
-    { src: "./plugins/datocms.js", mode: "client" },
-  ],
+  content: {
+    api: {
+      baseURL: '/api/_my_content'
+    },
+    toc: { depth: 2, searchDepth: 2 }
+  },
+
   // apollo: {
   //   clients: {
   //     default: './graphql/config/config.js'
@@ -41,4 +45,13 @@ export default defineNuxtConfig({
   //   // publishRelease: true,
   //   // sourceMapStyle: 'hidden-source-map',
   // }
+  plugins: [
+    // { src: "./mixin/global.js", },
+    // { src: "~/plugins/aos.js", mode: "client" },
+    { src: "./plugins/datocms.js", mode: "client" },
+  ],
+
+  devtools: {
+    enabled: true,
+  },
 })
