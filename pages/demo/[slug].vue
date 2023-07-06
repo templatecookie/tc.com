@@ -1,9 +1,11 @@
 <template>
+  this is demo product
+  {{ product }}
   <div>
     <demo-header :product="product" v-if="product" />
     <product-hero :product="product" v-if="product" />
-    <why-choose-our-product :product="product" v-if="product" />
-    <div v-for="(section, index) in product.contents" :key="index">
+    <!-- <why-choose-our-product :product="product" v-if="product?.contents" /> -->
+    <!-- <div v-for="(section, index) in product.contents" :key="index">
       <div v-if="section.__typename == 'ExclusivefeatureRecord'">
         <exclusive-feature :data="section" />
       </div>
@@ -26,7 +28,7 @@
       <div v-if="section.__typename == 'TechnologySectionRecord'">
         <technology-section :data="section" :product="product" />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -64,34 +66,10 @@ export default {
       ],
     }
   },
-  async asyncData({ app, params, store, query, $sentry }) {
-    try {
-      const client = app.apolloProvider.defaultClient;
-      const draft = app.apolloProvider.clients.draft
-      const { slug } = params;
-      const queryObject = { query: PRODUCT_DEMO, variables: { slug } };
-      let productData;
-
-      if (query && query.draft) {
-        productData = await draft.query(queryObject)
-      } else {
-        productData = await client.query(queryObject)
-      }
-
-      if (!store.getters.getGlobalData) {
-        const global = await client.query({
-          query: GLOBAL_QUERY,
-        })
-
-        const globalData = global.data?.global?.data?.attributes
-        store.commit('SET_GLOBAL_DATA', globalData)
-      }
-
-      const product = productData.data.product;
-      return { product }
-    } catch (error) {
-      $sentry.captureException(error)
-    }
+  setup() {
+    const products = ref();
+    const { data } = useGraphqlQuery({ query: PRODUCT_DEMO })
+    console.log(data._rawValue);
   },
 
   components: {

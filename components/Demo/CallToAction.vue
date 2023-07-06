@@ -33,8 +33,8 @@
 </template>
 
 <script>
-// import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-// import "swiper/css/swiper.css";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
 export default {
   props: ['section', 'product'],
   components: {

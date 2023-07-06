@@ -41,35 +41,35 @@
 </template>
 
 <script>
-  // import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-  // import "swiper/css/swiper.css";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
 
-  export default {
-    props: ['data'],
-    components: {
-      Swiper,
-      SwiperSlide
-    },
-    data() {
-      return {
-        swiperOptionTwo: {
-          slidesPerView: 1,
-          spaceBetween: 0,
-          centeredSlides: true,
-          autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
+export default {
+  props: ['data'],
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+  data() {
+    return {
+      swiperOptionTwo: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        centeredSlides: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
         },
-      }
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      },
     }
   }
+}
 </script>
