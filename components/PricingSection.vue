@@ -94,5 +94,8 @@ export default {
       Paddle.Setup({ vendor: 5864 });
     }
   },
+  mounted() {
+        console.log(this.id)
+      }
 }
 </script>
