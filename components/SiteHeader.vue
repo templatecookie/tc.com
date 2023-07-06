@@ -168,7 +168,6 @@ export default {
     };
   },
   mounted() {
-    // console.log(this.hdata.logo)
   }
 };
 </script>
