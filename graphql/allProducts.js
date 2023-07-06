@@ -1,7 +1,7 @@
 // All Products for Products Page Query
-import gql from 'graphql-tag';
 
-export default gql`
+
+export default `
   query {
     allProducts(first: 8, orderBy: id_DESC) {
       id
