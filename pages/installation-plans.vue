@@ -15,7 +15,7 @@
                 </div>
             </div>
         </section>
-
+        <!-- <pre>{{selectedProductData}}</pre> -->
         <section>
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-14">
                 <h2 class="mb-6 text-3xl font-medium">Choose your purchased product</h2>
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </section>
-        <PricingSection :id="selectedProductData?.id" :plans="selectedProductPlans" :info="selectedProductData" :checkout="true" />
+        <PricingSection :id="selectedProduct?.id" :plans="selectedProductPlans" :info="selectedProductData" :checkout="true" />
     </div>
 </template>
 
@@ -72,10 +72,8 @@
             const products = ref({});
             const { data, error } = useGraphqlQuery({query: ALL_PRODUCT_PLANS});
             products.value = data?._rawValue?.allProductplans;
-            console.log(products.value);
 
             const selectedProductData = computed(() => {
-                console.log(selectedProduct);
                 return products.value?.find(elem => {
                 return elem.product.id === (selectedProduct.value ? selectedProduct.value.replace('id', '') : null);
               });
@@ -84,14 +82,18 @@
 
             const selectedProductPlans = computed(() => {
                 if (selectedProductData) {
-                    return selectedProductData?.plans?.map(item => item.priceplan[0]);
+                    return selectedProductData?.value?.plans?.map(item => item.priceplan[0]);
                 }
-                return [];
+                // return null;
+                // console.log(selectedProductData.value)
+                return selectedProductData?.value?.plans?.map(item => item.priceplan[0]);
             });
+
             onMounted(() => {
                 if (products.value.length > 0){
                     selectedProduct.value = 'id' + products.value[0]?.product?.id;
                 }
+                selectedProduct.value = 'id' + products.value[0]?.product?.id;
             });
             return {
                 bannerImg,
@@ -100,7 +102,7 @@
                 selectedProductData,
                 selectedProductPlans,
             }
-        }
+        },
     }
 </script>
 

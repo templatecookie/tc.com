@@ -23,7 +23,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.15.1",
     "lodash.groupby": "^4.6.0",
-    "nuxt": "^3.5.2",
+    "nuxt": "^3.6.1",
     "nuxt-purgecss": "^2.0.0",
     "prettier": "^3.0.0"
   },

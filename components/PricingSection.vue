@@ -92,8 +92,10 @@ export default {
     isPaddleLoaded() {
       Paddle.Environment.set('sandbox');
       Paddle.Setup({ vendor: 5864 });
-      console.log('Paddle Loaded');
     }
   },
+  mounted() {
+        console.log(this.id)
+      }
 }
 </script>

@@ -17,8 +17,8 @@
     <section>
       <div class="mx-auto max-w-7xl px-4 sm:px-6 py-20">
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          <div v-for="(item, index) in products" :key="index" class="flex items-stretch">
-            <DocsProductItem :product="item"/>
+          <div v-for="(item, index) in data" :key="index" class="flex items-stretch">
+            <ContentProductItem :product="item"/>
           </div>
         </div>
       </div>
@@ -50,8 +50,6 @@
         .where({ 'category': { $contains: 'Getting Started' } })
         .find()
   )
-  const products = data._rawValue
-  console.log(products)
 </script>
 
 <style>
