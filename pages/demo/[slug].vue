@@ -1,11 +1,10 @@
 <template>
-  this is demo product
-  {{ product }}
+  <!-- {{ product }} -->
   <div>
     <demo-header :product="product" v-if="product" />
     <product-hero :product="product" v-if="product" />
-    <!-- <why-choose-our-product :product="product" v-if="product?.contents" /> -->
-    <!-- <div v-for="(section, index) in product.contents" :key="index">
+    <why-choose-our-product :product="product" v-if="product?.contents" />
+    <div v-for="(section, index) in product?.contents" :key="index">
       <div v-if="section.__typename == 'ExclusivefeatureRecord'">
         <exclusive-feature :data="section" />
       </div>
@@ -28,7 +27,7 @@
       <div v-if="section.__typename == 'TechnologySectionRecord'">
         <technology-section :data="section" :product="product" />
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -66,10 +65,18 @@ export default {
       ],
     }
   },
-  setup() {
-    const products = ref();
-    const { data } = useGraphqlQuery({ query: PRODUCT_DEMO })
-    console.log(data._rawValue);
+  async setup() {
+    const product = ref(null);
+    const route = useRoute()
+    const { slug } = route?.params
+    const { data } = await useGraphqlQuery({ query: PRODUCT_DEMO, variables: { slug } })
+    product.value = data?._rawValue?.product;
+    if (product?.value) {
+      console.log(data);
+    }
+    return {
+      product
+    }
   },
 
   components: {
