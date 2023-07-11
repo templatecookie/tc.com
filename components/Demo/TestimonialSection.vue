@@ -12,7 +12,8 @@
           Don't just listen to our words, see what our valued customers think about our product.
         </p>
       </div>
-      <swiper class="flex" :options="config">
+      <swiper class="flex" :modules="modules" :slides-per-view="config.slidesPerView" :autoplay="config.autoplay"
+        :breakpoints="config.breakpoints" :space-between="config.spaceBetween" :pagination="config.pagination">
         <swiper-slide class="!h-auto" v-for="(item, index) in data.testimonials" :key="index">
           <div class="flex h-full">
             <div class="flex flex-col bg-white rounded-xl">
@@ -52,6 +53,8 @@
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
+import 'swiper/css/pagination'
+import { Autoplay, Pagination } from 'swiper/modules'
 
 export default {
   props: ['data'],
@@ -61,14 +64,14 @@ export default {
   },
   data() {
     return {
+      modules: [Pagination, Autoplay],
       config: {
         slidesPerView: 2,
         spaceBetween: 30,
-        // autoplay: {
-        //   delay: 3000,
-        //   disableOnInteraction: true,
-        // },
-
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: true,
+        },
         breakpoints: {
           768: {
             slidesPerView: 2,
@@ -81,10 +84,10 @@ export default {
           el: ".swiper-pagination",
           clickable: true,
         },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
+        // navigation: {
+        //   nextEl: ".swiper-button-next",
+        //   prevEl: ".swiper-button-prev",
+        // },
       },
     }
   }
