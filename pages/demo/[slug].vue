@@ -18,7 +18,7 @@
       </div>
       <div v-if="section.__typename == 'PriceplanRecord'">
         <PricingSection :plans="section.plans" :id="section.sectionId ? section.sectionId : section.id"
-          :info="section.info[0]" :extraOffer="product.extraOffer" :requstCustomization="offerRequestCustomization" />
+          :info="section.info[0]" :extraOffer="product.extraOffer" :requestCustomization="offerRequestCustomization" />
       </div>
       <div v-if="section.__typename == 'TestimonialSectionRecord'">
         <testimonial-section :data="section" />
@@ -73,7 +73,7 @@ export default {
     const { data } = await useGraphqlQuery({ query: PRODUCT_DEMO, variables: { slug } })
     product.value = data?._rawValue?.product;
     if (product?.value) {
-      console.log(data);
+      // console.log(data);
     }
     return {
       product

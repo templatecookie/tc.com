@@ -73,7 +73,7 @@ export default {
         const products = ref({});
         const bannerImg = ref("/img-five.png");
         const { data, error } = await useGraphqlQuery({ query: ALL_PRODUCT_PLANS });
-        products.value = data?._rawValue?.allProductplans;
+        // products.value = data?._rawValue?.allProductplans;
         const selectedProduct = ref(products.value[0] || {});
 
 

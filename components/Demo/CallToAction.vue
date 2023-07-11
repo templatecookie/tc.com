@@ -10,18 +10,19 @@
             {{ section.description }}
           </p>
           <a href="#pricing"
-            class="inline-block bg-primary rounded-7 m-2 py-4 px-9 text-lg text-white duration-300 hover:bg-black">
+            class="inline-block bg-primary rounded-[7px] m-2 py-4 px-9 text-lg text-white duration-300 hover:bg-black">
             Buy Now
             <img class="inline-block ml-2" src="/icons/arrow-right.svg" alt="Templatecookie Arrow Right Icon" />
           </a>
           <nuxt-link to="/hire-us"
-            class="inline-block rounded-7 py-4 m-2 px-9 text-lg text-white duration-300 bg-secondary hover:bg-black">
+            class="inline-block rounded-[7px] py-4 m-2 px-9 text-lg text-white duration-300 bg-secondary hover:bg-black">
             Request Customization
           </nuxt-link>
         </div>
       </div>
       <div>
-        <swiper class="swiper" :options="swiperOptionOne">
+        <swiper class="swiper" :modules="modules" :slides-per-view="sfig.slidesPerView" :space-between="sfig.spaceBetween"
+          :speed="sfig.speed" :loop="true" :autoplay="sfig.autoplay" :free-mode="true" :breakpoints="sfig.breakpoints">
           <swiper-slide class="slider-full" v-for="(item, index) in section.screenshots" :key="index">
             <img class="w-full h-60 object-cover border border-white p-3 pb-0 border-b-0" :src="item.url"
               :alt="product.name" />
@@ -35,6 +36,8 @@
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
+import 'swiper/css/free-mode';
+import { FreeMode, Autoplay } from 'swiper/modules'
 export default {
   props: ['section', 'product'],
   components: {
@@ -43,15 +46,14 @@ export default {
   },
   data() {
     return {
-      swiperOptionOne: {
+      modules: [FreeMode, Autoplay],
+      sfig: {
         slidesPerView: 1,
         spaceBetween: 24,
-        loop: true,
         autoplay: {
           delay: 1,
           disableOnInteraction: false
         },
-        freeMode: true,
         speed: 10000,
         breakpoints: {
           1199: {
