@@ -41,12 +41,12 @@
           <div class="mt-8 flex justify-center gap-4 flex-wrap">
             <template v-for="(item, index) in product.actionButtons" :key="index">
               <a v-if="item.target" :href="item.href" target="_blank"
-                class="block text-center sm:inline-block bg-primary font-medium rounded-7 py-3.5 px-8 text-lg text-white duration-300 mb-3 sm:mb-0"
+                class="block text-center sm:inline-block font-medium rounded-[7px] py-3.5 px-8 text-lg text-white duration-300 mb-3 sm:mb-0"
                 :class="item.cssClass ? item.cssClass : 'bg-primary hover:bg-dark'">
                 {{ item.label }}
               </a>
               <nuxt-link v-else :to="item.href"
-                class="block text-center sm:inline-block bg-primary font-medium rounded-7 py-3.5 px-8 text-lg text-white duration-300 mb-3 sm:mb-0"
+                class="block text-center sm:inline-block bg-primary font-medium rounded-[7px] py-3.5 px-8 text-lg text-white duration-300 mb-3 sm:mb-0"
                 :class="item.cssClass ? item.cssClass : 'bg-primary hover:bg-dark'">
                 {{ item.label }}
               </nuxt-link>
@@ -68,7 +68,11 @@
     <div class="bg-gray-800" v-if="product.logoCloudsImages && product.logoCloudsTitle">
       <div class="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <h2 class="text-center text-base font-semibold text-gray-400">{{ product.logoCloudsTitle }}</h2>
-        <swiper class="swiper" :options="swiperOptionOne">
+        <swiper class="swiper" :slidesPerView="4" :spaceBetween="24" :loop="true" :freeMode="true" :speed="10000"
+          :modules="modules" :autoplay="{
+            delay: 1,
+            disableOnInteraction: false,
+          }" :breakpoints="breakpoints">
           <swiper-slide class="mt-8 slider-full" v-for="(item, index) in product.logoCloudsImages" :key="index">
             <div class="flex justify-center bg-white py-2 px-4 rounded">
               <img class="h-12" :src="item.url" :alt="item.alt">
@@ -83,6 +87,8 @@
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
+import 'swiper/css/free-mode';
+import { FreeMode, Autoplay } from 'swiper/modules'
 
 export default {
   props: {
@@ -94,32 +100,23 @@ export default {
   data() {
     return {
       bgImage: '/images/img-five.png',
-      swiperOptionOne: {
-        slidesPerView: 1,
-        spaceBetween: 24,
-        loop: true,
-        autoplay: {
-          delay: 1,
-          disableOnInteraction: false
+      modules: [FreeMode, Autoplay],
+
+      breakpoints: {
+        1199: {
+          slidesPerView: 4,
         },
-        freeMode: true,
-        speed: 10000,
-        breakpoints: {
-          1199: {
-            slidesPerView: 4,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          640: {
-            slidesPerView: 2,
-          },
-          320: {
-            slidesPerView: 1,
-          },
+        1024: {
+          slidesPerView: 3,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        640: {
+          slidesPerView: 2,
+        },
+        320: {
+          slidesPerView: 1,
         },
       },
     }

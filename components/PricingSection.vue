@@ -6,7 +6,8 @@
       <div class="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
         <div class="mx-auto max-w-2xl lg:max-w-4xl">
           <h2 class="text-lg font-semibold leading-8 text-primary/70">Pricing</h2>
-          <p class="mt-2 text-4xl font-bold tracking-tight text-white">{{ info?.title }}</p>
+          <code>{{ info?.title }}</code>
+          <!-- <p class="mt-2 text-4xl font-bold tracking-tight text-white">{{ info?.title }}</p> -->
           <p class="mt-6 text-lg leading-8 text-white/60"> {{ info?.description }}</p>
         </div>
       </div>
@@ -95,8 +96,5 @@ export default {
       console.log('Paddle Loaded');
     }
   },
-  mounted() {
-        console.log(this.id)
-      }
 }
 </script>

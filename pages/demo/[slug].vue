@@ -1,5 +1,4 @@
 <template>
-  <!-- {{ product }} -->
   <div>
     <demo-header :product="product" v-if="product" />
     <product-hero :product="product" v-if="product" />
@@ -47,8 +46,10 @@ import TestimonialSection from '../../components/Demo/TestimonialSection.vue';
 import TechnologySection from '../../components/Demo/TechnologySection.vue';
 import WhyChooseOurProduct from '../../components/Demo/WhyChooseOurProduct.vue';
 
+definePageMeta({
+  layout: "empty"
+})
 export default {
-  layout: "empty",
   name: "ProductDemo",
   head() {
     const product = this.product
