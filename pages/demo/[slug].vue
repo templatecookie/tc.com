@@ -2,8 +2,8 @@
   <div>
     <demo-header :product="product" v-if="product" />
     <product-hero :product="product" v-if="product" />
-    <why-choose-our-product :product="product" v-if="product" />
-    <div v-for="(section, index) in product.contents" :key="index">
+    <why-choose-our-product :product="product" v-if="product?.contents" />
+    <div v-for="(section, index) in product?.contents" :key="index">
       <div v-if="section.__typename == 'ExclusivefeatureRecord'">
         <exclusive-feature :data="section" />
       </div>
@@ -18,7 +18,7 @@
       </div>
       <div v-if="section.__typename == 'PriceplanRecord'">
         <PricingSection :plans="section.plans" :id="section.sectionId ? section.sectionId : section.id"
-          :info="section.info[0]" :extraOffer="product.extraOffer" :requstCustomization="offerRequestCustomization" />
+          :info="section.info[0]" :extraOffer="product.extraOffer" :requestCustomization="offerRequestCustomization" />
       </div>
       <div v-if="section.__typename == 'TestimonialSectionRecord'">
         <testimonial-section :data="section" />
@@ -46,8 +46,10 @@ import TestimonialSection from '../../components/Demo/TestimonialSection.vue';
 import TechnologySection from '../../components/Demo/TechnologySection.vue';
 import WhyChooseOurProduct from '../../components/Demo/WhyChooseOurProduct.vue';
 
+definePageMeta({
+  layout: "empty"
+})
 export default {
-  layout: "empty",
   name: "ProductDemo",
   head() {
     const product = this.product
@@ -64,33 +66,17 @@ export default {
       ],
     }
   },
-  async asyncData({ app, params, store, query, $sentry }) {
-    try {
-      const client = app.apolloProvider.defaultClient;
-      const draft = app.apolloProvider.clients.draft
-      const { slug } = params;
-      const queryObject = { query: PRODUCT_DEMO, variables: { slug } };
-      let productData;
-
-      if (query && query.draft) {
-        productData = await draft.query(queryObject)
-      } else {
-        productData = await client.query(queryObject)
-      }
-
-      if (!store.getters.getGlobalData) {
-        const global = await client.query({
-          query: GLOBAL_QUERY,
-        })
-
-        const globalData = global.data?.global?.data?.attributes
-        store.commit('SET_GLOBAL_DATA', globalData)
-      }
-
-      const product = productData.data.product;
-      return { product }
-    } catch (error) {
-      $sentry.captureException(error)
+  async setup() {
+    const product = ref(null);
+    const route = useRoute()
+    const { slug } = route?.params
+    const { data } = await useGraphqlQuery({ query: PRODUCT_DEMO, variables: { slug } })
+    product.value = data?._rawValue?.product;
+    if (product?.value) {
+      // console.log(data);
+    }
+    return {
+      product
     }
   },
 

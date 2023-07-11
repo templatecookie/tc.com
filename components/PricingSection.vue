@@ -6,6 +6,7 @@
       <div class="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
         <div class="mx-auto max-w-2xl lg:max-w-4xl">
           <h2 class="text-lg font-semibold leading-8 text-primary/70">Pricing</h2>
+          <!-- <code>{{ info?.title }}</code> -->
           <p class="mt-2 text-4xl font-bold tracking-tight text-white">{{ info?.title }}</p>
           <p class="mt-6 text-lg leading-8 text-white/60"> {{ info?.description }}</p>
         </div>
@@ -53,7 +54,7 @@
             </div>
             <div>
               <nuxt-link to="/hire-us"
-                class="inline-block rounded-lg bg-indigo-50 px-4 py-2.5 text-center text-sm font-semibold leading-5 text-secondary hover:bg-indigo-100">Request
+                class="inline-block rounded-lg  bg-indigo-50 px-4 py-2.5 text-center text-sm font-semibold leading-5 text-secondary hover:bg-indigo-100">Request
                 Customization Now <span aria-hidden="true">&rarr;</span></nuxt-link>
             </div>
           </div>
@@ -94,8 +95,5 @@ export default {
       Paddle.Setup({ vendor: 5864 });
     }
   },
-  mounted() {
-        console.log(this.id)
-      }
 }
 </script>
