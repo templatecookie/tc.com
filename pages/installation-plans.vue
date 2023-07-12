@@ -21,7 +21,8 @@
                 <div class="grid gap-4 grid-cols-1 lg:grid-cols-3 sm:grid-cols-2">
                     <div v-for="(item, index) in products" :key="index">
                         <input class="hidden" type="radio" name="choose-product" :id="'id' + item?.product?.id"
-                            :value="'id' + item?.product?.id" v-model="selectedProduct" />
+                            :value="'id' + item?.product?.id" v-model="selectedProduct"
+                            :checked="'id' + products[0].product.id" />
                         <label :for="'id' + item?.product?.id">
                             <div class="flex items-center gap-3 rounded-xl p-5"
                                 :class="selectedProduct === `id${item?.product?.id}` ? 'border-2 border-[#0B63E5] bg-white' : 'bg-gray-f0 border-2 border-transparent'">
@@ -36,8 +37,8 @@
                 </div>
             </div>
         </section>
-        <PricingSection :id="selectedProduct?.id" :plans="selectedProductPlans" :info="selectedProductData"
-            :checkout="true" />
+        <pre>D:{{ selectedProductData?.title }} P:{{ selectedProduct }}</pre>
+        <PricingSection :id="selectedProduct" :plans="selectedProductPlans" :info="selectedProductData" :checkout="true" />
     </div>
 </template>
 
@@ -48,7 +49,7 @@ import useGraphqlQuery from '~/composables/useGraphqlQuery';
 import {
     ref,
     computed,
-    onMounted
+    onMounted,
 } from 'vue';
 
 export default {
@@ -70,36 +71,25 @@ export default {
     },
 
     async setup() {
+        const selectedProduct = ref(null);
         const products = ref({});
         const bannerImg = ref("/img-five.png");
         const { data, error } = await useGraphqlQuery({ query: ALL_PRODUCT_PLANS });
-        // products.value = data?._rawValue?.allProductplans;
-        const selectedProduct = ref(products.value[0] || {});
+        products.value = data?._rawValue?.allProductplans;
 
 
         const selectedProductData = computed(() => {
-
-            return products.value?.find(elem => {
-                // return elem.product.id === (selectedProduct.value.id ? selectedProduct.value.replace('id', '') : null);
-            });
+            return products.value.find(elem => {
+                return elem.product.id === (selectedProduct.value ? selectedProduct.value.replace('id', '') : null)
+            })
         });
-
 
         const selectedProductPlans = computed(() => {
             if (selectedProductData.value) {
                 return selectedProductData?.value?.plans?.map(item => item.priceplan[0]);
             }
-            else {
-                return products.value[0].plans?.map(item => item.priceplan[0]);
-            }
         });
 
-        onMounted(() => {
-            if (products?.value?.length > 0) {
-                selectedProduct.value = 'id' + products.value[0]?.product?.id;
-            }
-            // selectedProduct.value = 'id' + products.value[0]?.product?.id;
-        });
         return {
             bannerImg,
             products,
@@ -108,6 +98,10 @@ export default {
             selectedProductPlans,
         }
     },
+    created() {
+        this.selectedProduct = 'id' + this.products[0].product?.id;
+        console.log(this.selectedProduct);
+    }
 }
 </script>
 
@@ -119,3 +113,5 @@ export default {
     }
 }
 </style>
+
+<!-- .replace('id', '')); -->
