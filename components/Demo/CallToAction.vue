@@ -21,8 +21,8 @@
         </div>
       </div>
       <div>
-        <swiper class="swiper" :modules="modules" :slides-per-view="sfig.slidesPerView" :space-between="sfig.spaceBetween"
-          :speed="sfig.speed" :loop="true" :autoplay="sfig.autoplay" :free-mode="true" :breakpoints="sfig.breakpoints">
+        <swiper class="swiper" :slidesPerView="1" :spaceBetween="24" :loop="true" :freeMode="true" :speed="10000"
+          :modules="modules" :breakpoints="breakpoints" :autoplay="{ delay: 1 }">
           <swiper-slide class="slider-full" v-for="(item, index) in section.screenshots" :key="index">
             <img class="w-full h-60 object-cover border border-white p-3 pb-0 border-b-0" :src="item.url"
               :alt="product.name" />
@@ -47,30 +47,21 @@ export default {
   data() {
     return {
       modules: [FreeMode, Autoplay],
-      sfig: {
-        slidesPerView: 1,
-        spaceBetween: 24,
-        autoplay: {
-          delay: 1,
-          disableOnInteraction: false
+      breakpoints: {
+        1199: {
+          slidesPerView: 2,
         },
-        speed: 10000,
-        breakpoints: {
-          1199: {
-            slidesPerView: 4,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          640: {
-            slidesPerView: 2,
-          },
-          320: {
-            slidesPerView: 1,
-          },
+        1024: {
+          slidesPerView: 3,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        640: {
+          slidesPerView: 2,
+        },
+        320: {
+          slidesPerView: 1,
         },
       },
     }

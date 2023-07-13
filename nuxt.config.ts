@@ -44,7 +44,9 @@ export default defineNuxtConfig({
     api: {
       baseURL: '/api/_my_content'
     },
+    markdown:{
     toc: { depth: 2, searchDepth: 2 }
+    }
   },
 
   // apollo: {
