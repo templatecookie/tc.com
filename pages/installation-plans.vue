@@ -9,8 +9,7 @@
                     <p class="text-lg md:text-lg text-dark max-w-full md:max-w-[536px] mx-auto font-light">
                         These plans are only available to those who have bought one or more products from us before. If you
                         haven't
-                        purchased yet, check our <a class="text-blue-600" href="https://1.envato.market/EaNJ2X">codecanyon
-                            profile</a>
+                        purchased yet, check our <a class="text-blue-600" href="https://1.envato.market/EaNJ2X">codecanyon profile</a>
                     </p>
                 </div>
             </div>
@@ -37,7 +36,7 @@
                 </div>
             </div>
         </section>
-        <pre>D:{{ selectedProductData?.title }} P:{{ selectedProduct }}</pre>
+        <!-- <pre>D:{{ selectedProductData?.title }} P:{{ selectedProduct }}</pre> -->
         <PricingSection :id="selectedProduct" :plans="selectedProductPlans" :info="selectedProductData" :checkout="true" />
     </div>
 </template>
