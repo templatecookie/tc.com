@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="relative py-12 lg:py-20 bg-no-repeat bg-center bg-cover"
+    <section class="realtive py-12 lg:py-20 bg-no-repeat bg-center bg-cover"
       style="background-image: url('https://www.datocms-assets.com/73511/1653474086-hero_bg.png')">
       <div class="mx-auto max-w-7xl px-4 sm:px-6">
         <div class="text-center">

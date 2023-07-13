@@ -6,15 +6,19 @@
         <p class="mt-2 text-3xl font-bold text- tracking-tight text-gray-900 sm:text-4xl">
           Services We Offer
         </p>
-        <p class="mx-auto mt-5 max-w-prose text-xl text-gray-500">We offer complete product design and development services based on our client’s demands. Here goes the list of top services we are offering at Templatecookie.</p>
+        <p class="mx-auto mt-5 max-w-prose text-xl text-gray-500">We offer complete product design and development
+          services based on our client’s demands. Here goes the list of top services we are offering at Templatecookie.
+        </p>
       </div>
       <div class="mt-20">
         <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="pt-6" v-for="(item, index) in services" :key="index" :data-aos="item.aos" :data-aos-delay="100 * index">
+          <div class="pt-6 aos" v-for="(item, index) in services" :key="index" :data-aos="item.aos"
+            :data-aos-delay="100 * index">
             <div class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
               <div class="-mt-6">
                 <div>
-                  <span class="inline-flex items-center justify-center rounded-xl bg-primary p-3 shadow-lg" v-html="item.icon"> </span>
+                  <span class="inline-flex items-center justify-center rounded-xl bg-primary p-3 shadow-lg"
+                    v-html="item.icon"> </span>
                 </div>
                 <h3 class="mt-8 text-lg font-semibold leading-8 tracking-tight text-gray-900">{{ item.name }}</h3>
                 <p class="mt-5 text-base leading-7 text-gray-600">{{ item.description }}</p>
@@ -29,7 +33,7 @@
 
 <script>
 export default {
-  data(){
+  data() {
     return {
       services: [
         {
@@ -68,6 +72,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

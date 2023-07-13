@@ -41,7 +41,7 @@
                 <div class="md:w-52 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
                   <span class="font-semibold title-font text-gray-700" v-for="(tag, index) in item.tags" :key="index">{{
                     tag.name }}</span>
-                  <span class="mt-1 text-gray-500 text-sm">{{ formateDate(item.updatedAt) }}</span>
+                  <span class="mt-1 text-gray-500 text-sm">{{ (item.updatedAt) }}</span>
                 </div>
                 <div class="md:flex-grow">
                   <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">

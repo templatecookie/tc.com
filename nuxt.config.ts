@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   ],
 
   plugins: [
-    { src: "@/plugins/formatDate", mode: "client" },
+    // { src: "./mixin/global.js", },
     { src: "@/plugins/aos", mode: "client" },
     { src: "./plugins/datocms.js", mode: "client" },
   ],
@@ -44,7 +44,7 @@ export default defineNuxtConfig({
     api: {
       baseURL: '/api/_my_content'
     },
-    // toc: { depth: 2, searchDepth: 2 }
+    toc: { depth: 2, searchDepth: 2 }
   },
 
   // apollo: {
