@@ -36,7 +36,6 @@
                 </div>
             </div>
         </section>
-        <!-- <pre>D:{{ selectedProductData?.title }} P:{{ selectedProduct }}</pre> -->
         <PricingSection :id="selectedProduct" :plans="selectedProductPlans" :info="selectedProductData" :checkout="true" />
     </div>
 </template>
@@ -48,7 +47,6 @@ import useGraphqlQuery from '~/composables/useGraphqlQuery';
 import {
     ref,
     computed,
-    onMounted,
 } from 'vue';
 
 export default {
@@ -99,7 +97,6 @@ export default {
     },
     created() {
         this.selectedProduct = 'id' + this.products[0].product?.id;
-        console.log(this.selectedProduct);
     }
 }
 </script>
@@ -112,5 +109,3 @@ export default {
     }
 }
 </style>
-
-<!-- .replace('id', '')); -->

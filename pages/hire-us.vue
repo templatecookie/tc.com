@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hero-section v-if="hubspotLoaded" />
+    <hire-hero v-if="hubspotLoaded" />
     <our-services />
     <working-process />
     <our-experties />
@@ -10,12 +10,15 @@
 
 <script>
 import ContactUs from '../components/hire/ContactUs.vue'
-import HeroSection from '../components/hire/HeroSection.vue'
+import HireHero from '~/components/hire/HireHero.vue'
 import OurExperties from '../components/hire/OurExperties.vue'
 import OurServices from '../components/hire/OurServices.vue'
 import WorkingProcess from '../components/hire/WorkingProcess.vue'
 export default {
-  components: { HeroSection, OurServices, WorkingProcess, OurExperties, ContactUs },
+  components: {
+    HireHero, OurServices, WorkingProcess, OurExperties,
+    ContactUs
+  },
   head: {
     title: "Hire Expert Designer & Developers | Templatecookie",
     meta: [

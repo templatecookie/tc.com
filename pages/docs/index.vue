@@ -18,7 +18,9 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 py-20">
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           <div v-for="(item, index) in data" :key="index" class="flex items-stretch">
-            <ProductItem :product="item" />
+
+            <ContentProductItem :product="item" />
+
           </div>
         </div>
       </div>
@@ -27,31 +29,29 @@
 </template>
 
 <script setup>
-  const bannerImg = ref("/images/img-five.png");
-  const title = ref('Templatecookie Product Documentation')
-  const description = ref("Don't have previous experience using our products? Read the documentation to learn more about the features and topics?")
+const bannerImg = ref("/images/img-five.png");
+const title = ref('Templatecookie Product Documentation')
+const description = ref("Don't have previous experience using our products? Read the documentation to learn more about the features and topics?")
 
-  // This will be reactive even you change title/description above
-  useHead({
-    title,
-    meta: [
-      { name: 'description', content: description },
-      // Open Graph
-      { property: 'og:title', content: title },
-      { property: 'og:description', content: description },
-      // Twitter Card
-      { name: 'twitter:title', content: title },
-      { name: 'twitter:description', content: description }
-    ]
-  })
+// This will be reactive even you change title/description above
+useHead({
+  title,
+  meta: [
+    { name: 'description', content: description },
+    // Open Graph
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    // Twitter Card
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description }
+  ]
+})
 
-  const { data } = await useAsyncData('docs', () => queryContent('/docs')
-        .where({ 'status': { $contains: 'true' } })
-        .where({ 'category': { $contains: 'Getting Started' } })
-        .find()
-  )
+const { data } = await useAsyncData('docs', () => queryContent('/docs')
+  .where({ 'status': { $contains: 'true' } })
+  .where({ 'category': { $contains: 'Getting Started' } })
+  .find()
+)
 </script>
 
-<style>
-
-</style>
+<style></style>

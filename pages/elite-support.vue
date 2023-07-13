@@ -502,7 +502,7 @@
                 <h2 class="text-4xl font-bold tracking-tight text-gray-900">Get in Touch with Elite Support</h2>
                 <p class="mt-2 text-lg leading-8 text-gray-600"> Reach out to our Elite Support team for prompt and
                     personalized assistance. </p>
-                <div id="hireUsForm" class="bg-white rounded-lg w-full mt-16 flex max-w-xl mx-auto"></div>
+                <div id="hireUsForm" class="bg-white rounded-lg w-full mt-16 flex max-w-xl mx-auto" v-once></div>
             </div>
         </div>
 
@@ -657,17 +657,17 @@ export default {
         document.body.appendChild(script);
         script.addEventListener("load", () => {
             this.hubspotLoaded = true;
-
             // Create the form
-            window.hbspt.forms.create({
+            window?.hbspt?.forms.create({
                 region: "na1",
                 portalId: "22174697",
                 formId: "6d720736-42f2-4fac-ab16-85e31cf04d82",
                 target: "#hireUsForm"
             });
+            this.contact = true;
 
         })
-    },
+    }
 
 }
 </script>

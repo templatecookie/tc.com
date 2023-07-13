@@ -7,12 +7,14 @@
             Technology We Use
           </h2>
           <p class="mt-3 mx-auto max-w-3xl text-lg text-gray-500">
-            At Templatecookie, we keep ourselves up to date on the latest technologies and tools. By using innovative technologies, we aim to create high-quality projects for our clients.
+            At Templatecookie, we keep ourselves up to date on the latest technologies and tools. By using innovative
+            technologies, we aim to create high-quality projects for our clients.
           </p>
         </div>
 
         <div class="mt-8 grid grid-cols-3 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-4">
-          <div class="col-span-1 flex justify-center bg-gray-50 py-8 px-8" v-for="(item, index) in technologies" :key="index">
+          <div class="col-span-1 flex justify-center bg-gray-50 py-8 px-8" v-for="(item, index) in technologies"
+            :key="index">
             <div class="sr-only">{{ item.name }}</div>
             <img class="max-h-12 aos" :src="item.logo" :alt="item.name" data-aos="flip-up" :data-aos-delay="100 * index">
           </div>
@@ -24,7 +26,7 @@
 
 <script>
 export default {
-  data(){
+  data() {
     return {
       technologies: [
         {

@@ -18,7 +18,7 @@
           <div class="mb-6">
             <h2 class="text-5xl mb-4 text-gray-900"> {{ post.title }} </h2>
             <div class="text-sm text-gray-600">
-              Updated at <span class="mr-2 pr-3 border-r border-gray-400">{{ (post.updatedAt) }}</span>
+              Updated at <span class="mr-2 pr-3 border-r border-gray-400">{{ formateDate(post.updatedAt) }}</span>
               Category:
               <a href="#" v-for="(tag, index) in post.tags" :key="index"> {{ tag.name }}, </a>
             </div>
@@ -72,8 +72,9 @@
 </template>
 
 <script>
-import BLOG_DETAILS from '~/graphql/blog/postDetails'
-import { ref } from 'vue'
+import BLOG_DETAILS from '~/graphql/blog/postDetails';
+import { ref } from 'vue';
+import dayjs from 'dayjs';
 export default {
   head() {
     const postDetails = this.post
@@ -117,6 +118,9 @@ export default {
           return null;
       }
     },
+    formateDate(data) {
+      return dayjs(data).format('D MMMM, YYYY')
+    }
   },
 
   async setup() {
