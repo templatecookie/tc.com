@@ -47,25 +47,25 @@
 </template>
 
 <script setup>
-  const { path } = useRoute()
+const { path } = useRoute()
 
-  // fetch all pages.
-  const { data } = await useAsyncData('docs-product', () => queryContent(`${path.replace(/\/+$/, '')}`)
-    .only(['title', 'description', 'category', 'position', '_path', '_dir', ])
-    .sort({ position: 1 })
-    .find())
+// fetch all pages.
+const { data } = await useAsyncData('docs-product', () => queryContent(`${path.replace(/\/+$/, '')}`)
+  .only(['title', 'description', 'category', 'position', '_path', '_dir',])
+  .sort({ position: 1 })
+  .find())
 
-  // find index.md and create product short name from _path
-  const product = data._rawValue.shift();
-  product.name = product._path.replace('/docs/', '');
+// find index.md and create product short name from _path
+const product = data._rawValue.shift();
+product.name = product._path.replace('/docs/', '');
 
-  // group by categories using lodash library
-  import groupBy from 'lodash.groupby';
-  const categories = groupBy(data._rawValue, 'category')
+// group by categories using lodash library
+import groupBy from 'lodash.groupby';
+const categories = groupBy(data._rawValue, 'category')
 </script>
 
 <style scoped>
-  .nuxt-link-exact-active {
-    background-color: rgb(239, 246, 255);
-  }
+.nuxt-link-exact-active {
+  background-color: rgb(239, 246, 255);
+}
 </style>
