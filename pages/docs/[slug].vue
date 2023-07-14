@@ -19,8 +19,9 @@
             <ul class="mb-6" v-for="(items, index) in categories" :key="index">
               <li class="uppercase text-xs text-gray-500 mb-2"> {{ index }} </li>
               <li v-for="(item, index) in items" :key="index">
-                <NuxtLink :href="item._path" class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm"> {{
-                  item.title }} </NuxtLink>
+                <NuxtLink :activeClass="'nuxt-link-active'" :href="item._path"
+                  class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm"> {{
+                    item.title }} </NuxtLink>
               </li>
             </ul>
             <ul>
@@ -65,7 +66,7 @@ const categories = groupBy(data._rawValue, 'category')
 </script>
 
 <style scoped>
-.nuxt-link-exact-active {
+.nuxt-link-active {
   background-color: rgb(239, 246, 255);
 }
 </style>

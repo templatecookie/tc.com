@@ -2,10 +2,13 @@
   <div class="flex w-full md:flex-wrap">
     <div class="px-6 pb-0 w-8/12 h-full">
       <ContentDoc class="markdown-body docs-details" />
+      <!-- <div class="pt-8 w-full text-left text-gray-500">
+        <i> Updated at </i>
+      </div> -->
     </div>
-    <div class="px-4 w-4/12 h-auto border-l border-gray-100">
-      <aside class="col-span-1 lg:flex lg:flex-col">
-        <div class="sticky top-16">
+    <div class="px-4 w-4/12 h-auto border-l border-gray-100 relative">
+      <aside class="col-span-1 lg:flex lg:flex-col sticky z-10 top-0">
+        <div>
           <h2 class="uppercase text-black font-h2 text-lg tracking-wider">
             Table of contents
           </h2>
@@ -61,6 +64,7 @@
 </template>
 
 <script setup>
+// import dayjs from 'dayjs';
 const currentlyActiveToc = ref('');
 function tocHeadClick(link) {
   currentlyActiveToc.value = link.id;
@@ -73,8 +77,8 @@ const { data } = await useAsyncData('home', () => queryContent(`${path}`).sort({
 
 const tocLinks = data?._rawValue?.body?.toc?.links
 
-const title = data._rawValue.title
-const description = data._rawValue.description
+const title = data?._rawValue?.title
+const description = data?._rawValue?.description
 
 useHead({
   title,
@@ -88,6 +92,12 @@ useHead({
     { name: 'twitter:description', content: description }
   ]
 })
+
+// const formatDate = computed(() => {
+//   {
+//     return this.page ? dayjs(this.page.updatedAt).format('dddd, MMMM DD YYYY') : '';
+//   }
+// })
 
 onMounted(() => {
   tocHeadClick(tocLinks[0]);
