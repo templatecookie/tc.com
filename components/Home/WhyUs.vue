@@ -20,7 +20,7 @@
               </div>
               <div class="text-center sm:text-left">
                 <h2 class="text-2xl font-medium text-dark mb-2">
-                  {{item.counter}}{{ item.title }}
+                  {{ item.counter }}{{ item.title }}
                 </h2>
                 <p class="text-sm text-dark-gray uppercase whitespace-nowrap overflow-ellipsis">
                   {{ item.description }}
@@ -58,24 +58,23 @@
 </template>
 
 <script>
-  export default {
-    props: ['data'],
-    data() {
-      return {
-        options: {
-          useEasing: true,
-          useGrouping: true,
-        },
-      }
-    },
-    computed: {
-      section() {
-        return this.data[0];
-      }
+export default {
+  props: ['data'],
+  data() {
+    return {
+      options: {
+        useEasing: true,
+        useGrouping: true,
+      },
+    }
+  },
+  computed: {
+    section() {
+      console.log(this.data);
+      return this.data[0];
     }
   }
+}
 </script>
 
-<style>
-
-</style>
+<style></style>

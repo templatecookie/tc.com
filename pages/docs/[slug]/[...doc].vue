@@ -66,17 +66,22 @@
 <script setup>
 // import dayjs from 'dayjs';
 const currentlyActiveToc = ref('');
+const content = ref(null)
 function tocHeadClick(link) {
-  currentlyActiveToc.value = link.id;
+  return currentlyActiveToc.value = link.id;
 }
 
+const observerOptions = {
+  root: content,
+  threshold: 0
+}
 const { path } = useRoute()
 const { data } = await useAsyncData('home', () => queryContent(`${path}`).sort({
   position: 'asc'
 }).findOne())
 
+content.value = data?._rawValue?.body;
 const tocLinks = data?._rawValue?.body?.toc?.links
-
 const title = data?._rawValue?.title
 const description = data?._rawValue?.description
 
@@ -101,5 +106,24 @@ useHead({
 
 onMounted(() => {
   tocHeadClick(tocLinks[0]);
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute("id");
+      if (entry.isIntersecting) {
+        currentlyActiveToc.value = id;
+      }
+    });
+  });
+
+  // Track all sections that have an `id` applied
+  document
+    .querySelectorAll(".markdown-body h3[id]")
+    .forEach(section => {
+      observer.observe(section);
+    });
+
+  onBeforeUnmount(() => {
+    observer.disconnect()
+  })
 })
 </script>

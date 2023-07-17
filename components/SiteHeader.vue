@@ -19,9 +19,9 @@
           </div>
           <nav class="hidden space-x-6 lg:flex items-center">
             <div class="relative">
-              <button @click="solutionStatus = !solutionStatus"
-                :class="solutionStatus ? 'text-gray-900' : 'text-gray-500'" type="button"
-                class="group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              <button @mouseover="solutionStatus = !solutionStatus"
+                :class="solutionStatus ? 'text-gray-900' : 'text-gray-500'"
+                class="group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 lg:focus:ring-transparent focus:ring-primary focus:ring-offset-2"
                 aria-expanded="false">
                 <span class="font-lexend">Products</span>
                 <svg :class="solutionStatus ? 'text-gray-600' : 'text-gray-400'"
