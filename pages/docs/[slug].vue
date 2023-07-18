@@ -4,7 +4,7 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6">
         <div class="text-left">
           <h1 class="text-4xl md:text-heading-40 text-dark mb-6 mx-auto font-semibold capitalize">
-            {{ product.name }} - Documentation
+            {{ product.title }} - Documentation
           </h1>
           <p class="text-lg md:text-lg text-dark mb-8 font-light">
             {{ product.description }}
@@ -17,11 +17,11 @@
         <div class="flex py-8 items-start">
           <div class="w-3/12 h-full border-r-[1px] border-gray-100 ">
             <ul class="mb-6" v-for="(items, index) in categories" :key="index">
-              <li class="uppercase text-xs text-gray-500 mb-2"> {{ index }} </li>
+              <li class="uppercase text-xs text-gray-500 mb-2">{{ index }} </li>
               <li v-for="(item, index) in items" :key="index">
-                <NuxtLink :activeClass="'nuxt-link-active'" :href="item._path"
+                <nuxt-link :activeClass="'nuxt-link-active'" :href="item?._path"
                   class="px-4 py-2 inline-block w-full text-gray-700 font-light text-sm"> {{
-                    item.title }} </NuxtLink>
+                    item.title }} </nuxt-link>
               </li>
             </ul>
             <ul>
@@ -40,7 +40,8 @@
             </ul>
           </div>
           <!-- <NuxtPage /> -->
-          <NuxtPage :productName="product.name" :categories="categories" v-bind:hello="`hello`"> </NuxtPage>
+          <NuxtPage :productName="product.name + 'Documentation'" :categories="categories" />
+
         </div>
       </div>
     </section>
@@ -49,10 +50,9 @@
 
 <script setup>
 const { path } = useRoute()
-
 // fetch all pages.
 const { data } = await useAsyncData('docs-product', () => queryContent(`${path.replace(/\/+$/, '')}`)
-  .only(['title', 'description', 'category', 'position', '_path', '_dir',])
+  .only(['title', 'description', 'category', 'position', '_path', '_dir'])
   .sort({ position: 1 })
   .find())
 
@@ -63,6 +63,8 @@ product.name = product._path.replace('/docs/', '');
 // group by categories using lodash library
 import groupBy from 'lodash.groupby';
 const categories = groupBy(data._rawValue, 'category')
+
+
 </script>
 
 <style scoped>

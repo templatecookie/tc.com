@@ -65,6 +65,7 @@
 
 <script setup>
 // import dayjs from 'dayjs';
+const props = defineProps(['categories', 'content', 'data'])
 const currentlyActiveToc = ref('');
 const content = ref(null)
 function tocHeadClick(link) {
@@ -84,6 +85,7 @@ content.value = data?._rawValue?.body;
 const tocLinks = data?._rawValue?.body?.toc?.links
 const title = data?._rawValue?.title
 const description = data?._rawValue?.description
+
 
 useHead({
   title,
