@@ -19,9 +19,11 @@
           <div class="flex gap-8 flex-wrap lg:flex-nowrap mb-8">
             <div class="flex-grow-0 w-full lg:w-1/2 lg:pr-10">
               <div class="rounded-lg mb-6 border overflow-hidden"
-                :class="`bg-${section.color}-50 border-${section.color}-600`" v-for="(section, index) in supportFeatures"
-                :key="index">
-                <h3 class="py-4 px-6 text-white" :class="`bg-${section.color}-600`">{{ section.name }}</h3>
+                :class="section.color == 'red' ? 'bg-warn1ng border-red-600' : `bg-${section.color}-50 border-${section.color}-600`"
+                v-for="(section, index) in supportFeatures" :key="index">
+                <h3 v-if="section.color == 'red'" class="py-4 px-6 text-white bg-red-600 border-red-600"
+                  :class="`bg-${section.color}-600`">{{ section.name }}</h3>
+                <h3 v-else class="py-4 px-6 text-white" :class="`bg-${section.color}-600`">{{ section.name }}</h3>
                 <hr>
                 <ul class="py-4 px-6 gap-2 flex flex-col">
                   <li class="flex gap-2" :class="`text-${section.color}-600`" v-for="(item, itemIndex) in section.items"

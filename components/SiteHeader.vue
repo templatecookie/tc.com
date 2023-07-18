@@ -19,7 +19,7 @@
           </div>
           <nav class="hidden space-x-6 lg:flex items-center">
             <div class="relative">
-              <button @mouseover="solutionStatus = !solutionStatus"
+              <button @pointerenter="solutionStatus = !solutionStatus"
                 :class="solutionStatus ? 'text-gray-900' : 'text-gray-500'"
                 class="group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 lg:focus:ring-transparent focus:ring-primary focus:ring-offset-2"
                 aria-expanded="false">
@@ -103,7 +103,8 @@
                 </div>
                 <div class="mt-6">
                   <nav class="grid grid-cols-1 gap-7">
-                    <nuxt-link to="/" v-for="(product, index) in hdata.selectedProducts" :key="index"
+                    <nuxt-link :to="{ name: 'demo-slug', params: { slug: product.slug } }"
+                      v-for="(product, index) in hdata.selectedProducts" :key="index"
                       class="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50">
                       <div
                         class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-primary text-white">
