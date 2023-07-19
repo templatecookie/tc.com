@@ -57,12 +57,14 @@
 <script>
 export default {
   setup() {
+    const title = ref('Get Customer Support - Templatecookie.com');
+    const description = ref('Having trouble with our products? Get in touch and create a support ticket')
     useHead({
-      title: 'Get Customer Support - Templatecookie.com',
+      title: title,
+      description: description,
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { description: 'Having trouble with our products? Get in touch and create a support ticket.', },
         { hid: 'description', name: 'description', content: description },
         { hid: 'og:title', property: 'og:title', name: 'og:title', content: title },
         { hid: 'og:description', name: 'og:description', name: 'og:description', content: description },
