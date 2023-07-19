@@ -65,7 +65,23 @@
 
 <script setup>
 // import dayjs from 'dayjs';
-const props = defineProps(['categories', 'content', 'data'])
+// const props = defineProps(['categories', 'content', 'data'])
+useHead({
+  title: page.value.title + ` - ${this.productName}`,
+  description: page.description,
+
+  meta: [
+    { hid: 'description', name: 'description', content: description },
+    // Open Graph
+    { hid: 'og:title', property: 'og:title', content: title },
+    { hid: 'og:description', property: 'og:description', content: description },
+    // Twitter Card
+    { hid: 'twitter:title', name: 'twitter:title', content: title },
+    { hid: 'twitter:description', name: 'twitter:description', content: description }
+  ]
+
+})
+
 const currentlyActiveToc = ref('');
 const content = ref(null)
 function tocHeadClick(link) {
@@ -83,6 +99,7 @@ const { data } = await useAsyncData('home', () => queryContent(`${path}`).sort({
 
 content.value = data?._rawValue?.body;
 const tocLinks = data?._rawValue?.body?.toc?.links
+console.log(tocLinks);
 const title = data?._rawValue?.title
 const description = data?._rawValue?.description
 

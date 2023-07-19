@@ -54,6 +54,7 @@ const { data } = await useAsyncData('docs', () => queryContent('/docs')
   .where({ 'category': { $contains: 'Getting Started' } })
   .find()
 )
+
 </script>
 
 <style></style>

@@ -31,7 +31,7 @@ import { ref } from 'vue'
 
 export default {
     components: { BlogItem },
-    head() {
+    useHead() {
         const title = `Blog - Templatecookie.com`;
         const description = 'Read templatecookie blog. Updated Weekly'
         return {

@@ -55,7 +55,6 @@ const { data } = await useAsyncData('docs-product', () => queryContent(`${path.r
   .only(['title', 'description', 'category', 'position', '_path', '_dir'])
   .sort({ position: 1 })
   .find())
-
 // find index.md and create product short name from _path
 const product = data._rawValue.shift();
 product.name = product._path.replace('/docs/', '');

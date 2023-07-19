@@ -498,14 +498,14 @@
             </div>
         </div>
 
-        <div class="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8" id="contactUs" v-if="contact">
+        <!-- <div class="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8" id="contactUs" v-if="contact">
             <div class="mx-auto max-w-xl lg:max-w-4xl text-center" id="getStarted">
                 <h2 class="text-4xl font-bold tracking-tight text-gray-900">Get in Touch with Elite Support</h2>
                 <p class="mt-2 text-lg leading-8 text-gray-600"> Reach out to our Elite Support team for prompt and
                     personalized assistance. </p>
                 <div id="hireUsForm" class="bg-white rounded-lg w-full mt-16 flex max-w-xl mx-auto" v-once></div>
             </div>
-        </div>
+        </div> -->
 
         <div class="bg-white py-24 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
