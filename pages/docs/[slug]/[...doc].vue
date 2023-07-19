@@ -66,21 +66,6 @@
 <script setup>
 // import dayjs from 'dayjs';
 // const props = defineProps(['categories', 'content', 'data'])
-useHead({
-  title: page.value.title + ` - ${this.productName}`,
-  description: page.description,
-
-  meta: [
-    { hid: 'description', name: 'description', content: description },
-    // Open Graph
-    { hid: 'og:title', property: 'og:title', content: title },
-    { hid: 'og:description', property: 'og:description', content: description },
-    // Twitter Card
-    { hid: 'twitter:title', name: 'twitter:title', content: title },
-    { hid: 'twitter:description', name: 'twitter:description', content: description }
-  ]
-
-})
 
 const currentlyActiveToc = ref('');
 const content = ref(null)

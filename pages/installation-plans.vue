@@ -9,7 +9,8 @@
                     <p class="text-lg md:text-lg text-dark max-w-full md:max-w-[536px] mx-auto font-light">
                         These plans are only available to those who have bought one or more products from us before. If you
                         haven't
-                        purchased yet, check our <a class="text-blue-600" href="https://1.envato.market/EaNJ2X">codecanyon profile</a>
+                        purchased yet, check our <a class="text-blue-600" href="https://1.envato.market/EaNJ2X">codecanyon
+                            profile</a>
                     </p>
                 </div>
             </div>
@@ -50,24 +51,24 @@ import {
 } from 'vue';
 
 export default {
-    head: {
-        title: "Installation Plans | Templatecookie Products",
-        meta: [{
-            charset: "utf-8"
-        },
-        {
-            name: "viewport",
-            content: "width=device-width, initial-scale=1"
-        },
-        {
-            hid: "description",
-            name: "description",
-            content: "Buy our premium installation support package, our expert team will help you get your app installed & configured."
-        }
-        ],
-    },
 
     async setup() {
+        useHead({
+            title: "Installation Plans | Templatecookie Products",
+            meta: [{
+                charset: "utf-8"
+            },
+            {
+                name: "viewport",
+                content: "width=device-width, initial-scale=1"
+            },
+            {
+                hid: "description",
+                name: "description",
+                content: "Buy our premium installation support package, our expert team will help you get your app installed & configured."
+            }
+            ],
+        })
         const selectedProduct = ref(null);
         const products = ref({});
         const bannerImg = ref("/img-five.png");

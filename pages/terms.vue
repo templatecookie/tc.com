@@ -57,30 +57,27 @@
 </template>
 
 <script>
-  export default {
-    head() {
-      let title = 'Terms and Conditions | Templatecookie';
-      const description = 'By using Templatecookie, you agree to be bound by our Terms and Conditions. We provide high-quality templates and resources for web development, while also outlining our expectations for user conduct and ownership of content. Learn more here.'
-      return {
-        title: title,
-        meta: [
-          { charset: 'utf-8' },
-          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-          { hid: 'description', name: 'description', content: description },
-          { hid: 'og:title', property: 'og:title', name: 'og:title', content: title },
-          { hid: 'og:description', name: 'og:description', name: 'og:description', content: description },
-          { hid: 'og:type', property: 'og:type', name: 'og:type', content: "website" },
-          { hid: 'og:image', property: 'og:image', name: 'og:image', content: '/social-meta.png' },
-        ],
-      }
-    },
-    data() {
-      return {
-      }
-    },
-  }
+export default {
+  setup() {
+    useHead({
+      title: 'Terms and Conditions | Templatecookie',
+      description: 'By using Templatecookie, you agree to be bound by our Terms and Conditions. We provide high-quality templates and resources for web development, while also outlining our expectations for user conduct and ownership of content. Learn more here.',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: description },
+        { hid: 'og:title', property: 'og:title', name: 'og:title', content: title },
+        { hid: 'og:description', name: 'og:description', name: 'og:description', content: description },
+        { hid: 'og:type', property: 'og:type', name: 'og:type', content: "website" },
+        { hid: 'og:image', property: 'og:image', name: 'og:image', content: '/social-meta.png' },
+      ],
+    })
+  },
+  data() {
+    return {
+    }
+  },
+}
 </script>
 
-<style>
-
-</style>
+<style></style>

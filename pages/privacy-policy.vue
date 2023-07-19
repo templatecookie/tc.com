@@ -14,7 +14,7 @@
       <div class="flex justify-center">
         <div class="max-w-2xl mx-auto px-4 py-8  sm:px-6">
           <h1 class="text-2xl font-bold mb-4">Privacy Policy</h1>
-          <p class="mt-2 text-gray-600">Last updated: {{currentDate}}</p>
+          <p class="mt-2 text-gray-600">Last updated: {{ currentDate }}</p>
           <p class="mt-4">Templatecookie ("us", "we", or "our") operates https://templatecookie.com (the "Site"). This
             page informs you of our policies regarding the collection, use and disclosure of Personal Information we
             receive from users of the Site.</p>
@@ -64,35 +64,31 @@
 </template>
 
 <script>
-  export default {
-    head() {
-      let title = 'Privacy Policy | Templatecookie';
-      const description = 'Learn about how Templatecookie collects, uses, and protects your personal information with our Privacy Policy. We respect your privacy and strive to provide a secure and transparent experience on our website.'
-      return {
-        title: title,
-        meta: [
-          { charset: 'utf-8' },
-          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-          { hid: 'description', name: 'description', content: description },
-          { hid: 'og:title', property: 'og:title', name: 'og:title', content: title },
-          { hid: 'og:description', name: 'og:description', name: 'og:description', content: description },
-          { hid: 'og:type', property: 'og:type', name: 'og:type', content: "website" },
-          { hid: 'og:image', property: 'og:image', name: 'og:image', content: '/social-meta.png' },
-        ],
-      }
-    },
-    data() {
-      return {
-        currentDate: ''
-      };
-    },
-    mounted() {
-      const date = new Date('2023-03-31');
-      this.currentDate = date.toLocaleDateString();
-    }
+export default {
+  setup() {
+    useHead({
+      title: title,
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: description },
+        { hid: 'og:title', property: 'og:title', name: 'og:title', content: title },
+        { hid: 'og:description', name: 'og:description', name: 'og:description', content: description },
+        { hid: 'og:type', property: 'og:type', name: 'og:type', content: "website" },
+        { hid: 'og:image', property: 'og:image', name: 'og:image', content: '/social-meta.png' },
+      ],
+    })
+  },
+  data() {
+    return {
+      currentDate: ''
+    };
+  },
+  mounted() {
+    const date = new Date('2023-03-31');
+    this.currentDate = date.toLocaleDateString();
   }
+}
 </script>
 
-<style>
-
-</style>
+<style></style>

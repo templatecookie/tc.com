@@ -56,21 +56,21 @@
 
 <script>
 export default {
-  head() {
-    let title = 'Get Customer Support - Templatecookie.com';
-    const description = 'Having trouble with our products? Get in touch and create a support ticket.'
-    return {
-      title: title,
+  setup() {
+    useHead({
+      title: 'Get Customer Support - Templatecookie.com',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { description: 'Having trouble with our products? Get in touch and create a support ticket.', },
         { hid: 'description', name: 'description', content: description },
         { hid: 'og:title', property: 'og:title', name: 'og:title', content: title },
         { hid: 'og:description', name: 'og:description', name: 'og:description', content: description },
         { hid: 'og:type', property: 'og:type', name: 'og:type', content: "website" },
         { hid: 'og:image', property: 'og:image', name: 'og:image', content: '/social-meta.png' },
       ],
-    }
+
+    })
   },
   data() {
     return {

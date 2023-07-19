@@ -51,9 +51,8 @@ definePageMeta({
 })
 export default {
   name: "ProductDemo",
-  head() {
-    const product = this.product
-    return {
+  async setup() {
+    head({
       title: `${product.name}`,
       meta: [
         { charset: 'utf-8' },
@@ -64,9 +63,7 @@ export default {
         { hid: 'og:type', property: 'og:type', name: 'og:type', content: "product" },
         { hid: 'og:image', property: 'og:image', name: 'og:image', content: product.demoBanner ? product.demoBanner.url : product.banner.url },
       ],
-    }
-  },
-  async setup() {
+    })
     const product = ref(null);
     const route = useRoute()
     const { slug } = route?.params

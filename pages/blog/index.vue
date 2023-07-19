@@ -31,10 +31,9 @@ import { ref } from 'vue'
 
 export default {
     components: { BlogItem },
-    useHead() {
-        const title = `Blog - Templatecookie.com`;
-        const description = 'Read templatecookie blog. Updated Weekly'
-        return {
+
+    async setup() {
+        useHead({
             title: title,
             meta: [
                 { charset: 'utf-8' },
@@ -45,9 +44,8 @@ export default {
                 { hid: 'og:type', property: 'og:type', name: 'og:type', content: "product" },
                 // { hid: 'og:image', property: 'og:image', name: 'og:image', content: product.banner.url },
             ],
-        }
-    },
-    async setup() {
+        })
+
         const { data } = await useGraphqlQuery({ query: ALL_BLOG_QUERY });
         const posts = ref([])
         posts.value = data._rawValue.allPosts;

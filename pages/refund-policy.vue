@@ -14,7 +14,7 @@
       <div class="flex justify-center">
         <div class="max-w-2xl mx-auto px-4 py-8  sm:px-6">
           <h1 class="text-2xl font-bold mb-4">Refund Policy</h1>
-          <p class="mt-2 text-gray-600">Last updated: {{currentDate}}</p>
+          <p class="mt-2 text-gray-600">Last updated: {{ currentDate }}</p>
           <p class="mt-4"> At Templatecookie, we are committed to providing high-quality products and services to our
             customers. We understand that sometimes you may need to request a refund, and we have outlined our refund
             policy below. </p>
@@ -66,35 +66,34 @@
 </template>
 
 <script>
-  export default {
-    head() {
-      let title = "Refund Policy | Our commitment to customer satisfaction";
-      const description = "Our refund policy ensures that our customers receive a satisfactory experience. If you're unhappy with your purchase or encounter issues, we're here to help. Learn more about our refund policy and eligibility criteria.";
-      return {
-        title: title,
-        meta: [
-          { charset: 'utf-8' },
-          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-          { hid: 'description', name: 'description', content: description },
-          { hid: 'og:title', property: 'og:title', name: 'og:title', content: title },
-          { hid: 'og:description', name: 'og:description', name: 'og:description', content: description },
-          { hid: 'og:type', property: 'og:type', name: 'og:type', content: "website" },
-          { hid: 'og:image', property: 'og:image', name: 'og:image', content: '/social-meta.png' },
-        ],
-      }
-    },
-    data() {
-      return {
-        currentDate: ''
-      };
-    },
-    mounted() {
-      const date = new Date('2023-03-31');
-      this.currentDate = date.toLocaleDateString();
-    }
+export default {
+  setup() {
+    useHead({
+      title: "Refund Policy | Our commitment to customer satisfaction",
+      meta: [
+        { charset: 'utf-8' },
+        { description: "Our refund policy ensures that our customers receive a satisfactory experience. If you're unhappy with your purchase or encounter issues, we're here to help. Learn more about our refund policy and eligibility criteria." },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: description },
+        { hid: 'og:title', property: 'og:title', name: 'og:title', content: title },
+        { hid: 'og:description', name: 'og:description', name: 'og:description', content: description },
+        { hid: 'og:type', property: 'og:type', name: 'og:type', content: "website" },
+        { hid: 'og:image', property: 'og:image', name: 'og:image', content: '/social-meta.png' },
+      ],
+    })
+  },
+  data() {
+    return {
+      currentDate: ''
+    };
+  },
+  mounted() {
+    const date = new Date('2023-03-31');
+    this.currentDate = date.toLocaleDateString();
   }
+}
 </script>
 
 <style lang="scss">
-  // @import '../assets/scss/markdown/index.scss';
+// @import '../assets/scss/markdown/index.scss';
 </style>
