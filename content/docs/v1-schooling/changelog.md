@@ -8,6 +8,7 @@ category: Others
 # Changelog
 
 ### v1.14.21 - 16th May, 2022
+
 ```
 - Teacher attendance page some teachers missing issue
 - Can’t select multiple sections from class add/edit page issue
@@ -16,6 +17,7 @@ category: Others
 ```
 
 ### v1.14.17
+
 ```
 - fix - Teacher edit validation error fix
 - fix - Paypal payment issue fix
@@ -23,12 +25,14 @@ category: Others
 ```
 
 ### v1.5.14
+
 ```
 - fix: Student update form not fill
 - fix: User doesn't create when SMTP details missing
 ```
 
 ### v1.5.2 - 16th February, 2022
+
 ```
 - PWA Module (Install as a Mobile) Add
 - Responsive bug fix
@@ -36,6 +40,7 @@ category: Others
 ```
 
 ### v1.4.10 - 24 March, 2022
+
 ```
 - Set Default Language [Bug Fix]
 ```
@@ -44,5 +49,3 @@ category: Others
 
 [Added]
 Initial Released
-
-

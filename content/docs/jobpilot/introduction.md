@@ -14,6 +14,7 @@ Thank you so much for purchasing. Please rate this item, if you like it.
 Jobpilot is a modern, high-quality, and well-organized Job Portal with PHP Laravel Script designed to connect people looking for suitable Jobs & Candidates.
 
 ### Key Features
+
 ---
 
 - Laravel 8 (Latest Version)

@@ -1,5 +1,8 @@
 <template>
-  <div class="callout-block" :class="'callout-'+type">
+  <div
+    class="callout-block"
+    :class="'callout-' + type"
+  >
     <slot />
   </div>
 </template>
@@ -8,9 +11,9 @@
 export default {
   props: {
     type: {
-      default: 'info',
-      type: String
-    }
-  }
-}
+      default: "info",
+      type: String,
+    },
+  },
+};
 </script>

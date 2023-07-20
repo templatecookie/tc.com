@@ -50,4 +50,4 @@ query PostDetails($slug: String) {
   }
 }
 
-`
+`;

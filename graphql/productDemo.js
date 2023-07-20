@@ -1,6 +1,5 @@
 // Product Demo Page Query
 
-
 export default `
 query product($slug: String!){
   product(filter: {slug: {eq: $slug}}) {
@@ -201,4 +200,4 @@ query product($slug: String!){
     }
   }
 }
-`
+`;

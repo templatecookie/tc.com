@@ -1,5 +1,8 @@
 <template>
-  <div class="highlight-block rounded-lg" :class="type">
+  <div
+    class="highlight-block rounded-lg"
+    :class="type"
+  >
     <slot />
   </div>
 </template>
@@ -8,9 +11,9 @@
 export default {
   props: {
     type: {
-      default: 'info',
-      type: String
-    }
-  }
-}
+      default: "info",
+      type: String,
+    },
+  },
+};
 </script>

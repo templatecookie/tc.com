@@ -27,7 +27,6 @@ How To Setup In Liveserver (CPanel)
 
 ---
 
-
 ### Step 1:
 
 Login to your shared hosting and go to file manager.

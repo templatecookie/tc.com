@@ -5,6 +5,7 @@ category: System Setting
 ---
 
 ## How to edit website pages
+
 You can make changes to the following pages:
 
 1. Home
@@ -19,5 +20,6 @@ You can make changes to the following pages:
 10. Maintenance Mode
 
 ### To modify pages follow the instructions
-1. Go to `Admin Panel` -> `Settings` -> `Website Settings` -> `CMS` 
+
+1. Go to `Admin Panel` -> `Settings` -> `Website Settings` -> `CMS`
 2. You can now see the above-mentioned pages list in the left sidebar.

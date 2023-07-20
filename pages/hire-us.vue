@@ -9,18 +9,20 @@
 </template>
 
 <script>
-import ContactUs from '../components/hire/ContactUs.vue'
-import HireHero from '~/components/hire/HireHero.vue'
-import OurExperties from '../components/hire/OurExperties.vue'
-import OurServices from '../components/hire/OurServices.vue'
-import WorkingProcess from '../components/hire/WorkingProcess.vue'
+import ContactUs from "../components/hire/ContactUs.vue";
+import HireHero from "~/components/hire/HireHero.vue";
+import OurExperties from "../components/hire/OurExperties.vue";
+import OurServices from "../components/hire/OurServices.vue";
+import WorkingProcess from "../components/hire/WorkingProcess.vue";
 export default {
   components: {
-    HireHero, OurServices, WorkingProcess, OurExperties,
-    ContactUs
+    HireHero,
+    OurServices,
+    WorkingProcess,
+    OurExperties,
+    ContactUs,
   },
   setup() {
-
     useHead({
       title: "Hire Expert Designer & Developers | Templatecookie",
       meta: [
@@ -29,15 +31,16 @@ export default {
         {
           hid: "Get premium ",
           name: "description",
-          content: "We have expert developers and designers to help you build your next dream project. Our team composed with experts in various industry"
-        }
+          content:
+            "We have expert developers and designers to help you build your next dream project. Our team composed with experts in various industry",
+        },
       ],
-    })
+    });
   },
   data() {
     return {
       hubspotLoaded: false,
-    }
+    };
   },
   mounted() {
     const script = document.createElement("script");
@@ -45,7 +48,7 @@ export default {
     document.body.appendChild(script);
     script.addEventListener("load", () => {
       this.hubspotLoaded = true;
-    })
-  }
-}
+    });
+  },
+};
 </script>

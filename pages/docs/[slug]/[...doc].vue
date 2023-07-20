@@ -14,24 +14,59 @@
           </h2>
           <nav class="mt-4">
             <ul class="mb-2">
-              <li @click="tocHeadClick(link)" class="toc-list" :class="{ 'pl-4': link.depth === 3 }"
-                v-for="(link, index) in tocLinks" :key="index">
-                <a role="button" class="transition-colors duration-75 mb-2 block font-light"
-                  :class="{ 'text-blue-500 hover:text-blue-600': link.id === currentlyActiveToc, 'text-black hover:gray-900': link.id !== currentlyActiveToc }"
-                  :href="`#${link.id}`">{{ link.text }}</a>
+              <li
+                @click="tocHeadClick(link)"
+                class="toc-list"
+                :class="{ 'pl-4': link.depth === 3 }"
+                v-for="(link, index) in tocLinks"
+                :key="index"
+              >
+                <a
+                  role="button"
+                  class="transition-colors duration-75 mb-2 block font-light"
+                  :class="{
+                    'text-blue-500 hover:text-blue-600':
+                      link.id === currentlyActiveToc,
+                    'text-black hover:gray-900': link.id !== currentlyActiveToc,
+                  }"
+                  :href="`#${link.id}`"
+                  >{{ link.text }}</a
+                >
               </li>
             </ul>
             <div class="bg-blue-200 px-3 py-5 rounded-md mt-4">
-              <h3 class="text-xl mb-2"> Buy our products from Envato Market </h3>
-              <a href="https://go.templatecookie.com/codecanyon" target="_blank" class="outline-btn">
+              <h3 class="text-xl mb-2">Buy our products from Envato Market</h3>
+              <a
+                href="https://go.templatecookie.com/codecanyon"
+                target="_blank"
+                class="outline-btn"
+              >
                 Buy our products
-                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1" width="20" height="20" fill="currentColor"
-                  viewBox="0 0 256 256">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="ml-1"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                >
                   <rect width="256" height="256" fill="none"></rect>
-                  <path d="M122.3,71.4l19.8-19.8a44.1,44.1,0,0,1,62.3,62.3l-28.3,28.2a43.9,43.9,0,0,1-62.2,0" fill="none"
-                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
-                  <path d="M133.7,184.6l-19.8,19.8a44.1,44.1,0,0,1-62.3-62.3l28.3-28.2a43.9,43.9,0,0,1,62.2,0" fill="none"
-                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                  <path
+                    d="M122.3,71.4l19.8-19.8a44.1,44.1,0,0,1,62.3,62.3l-28.3,28.2a43.9,43.9,0,0,1-62.2,0"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"
+                  ></path>
+                  <path
+                    d="M133.7,184.6l-19.8,19.8a44.1,44.1,0,0,1-62.3-62.3l28.3-28.2a43.9,43.9,0,0,1,62.2,0"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="16"
+                  ></path>
                 </svg>
               </a>
             </div>
@@ -67,40 +102,43 @@
 // import dayjs from 'dayjs';
 // const props = defineProps(['categories', 'content', 'data'])
 
-const currentlyActiveToc = ref('');
-const content = ref(null)
+const currentlyActiveToc = ref("");
+const content = ref(null);
 function tocHeadClick(link) {
-  return currentlyActiveToc.value = link.id;
+  return (currentlyActiveToc.value = link.id);
 }
 
 const observerOptions = {
   root: content,
-  threshold: 0
-}
-const { path } = useRoute()
-const { data } = await useAsyncData('home', () => queryContent(`${path}`).sort({
-  position: 'asc'
-}).findOne())
+  threshold: 0,
+};
+const { path } = useRoute();
+const { data } = await useAsyncData("home", () =>
+  queryContent(`${path}`)
+    .sort({
+      position: "asc",
+    })
+    .findOne(),
+);
 
 content.value = data?._rawValue?.body;
-const tocLinks = data?._rawValue?.body?.toc?.links
+const tocLinks = data?._rawValue?.body?.toc?.links;
 console.log(tocLinks);
-const title = data?._rawValue?.title
-const description = data?._rawValue?.description
-
+const title = data?._rawValue?.title;
+const description = data?._rawValue?.description;
 
 useHead({
   title,
   meta: [
-    { name: 'description', content: description },
+    { name: "description", content: description },
     // Open Graph
-    { property: 'og:title', content: title },
-    { property: 'og:description', content: description },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
     // Twitter Card
-    { name: 'twitter:title', content: title },
-    { name: 'twitter:description', content: description }
-  ]
-})
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+  ],
+});
 
 // const formatDate = computed(() => {
 //   {
@@ -110,8 +148,8 @@ useHead({
 
 onMounted(() => {
   tocHeadClick(tocLinks[0]);
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       const id = entry.target.getAttribute("id");
       if (entry.isIntersecting) {
         currentlyActiveToc.value = id;
@@ -120,14 +158,12 @@ onMounted(() => {
   });
 
   // Track all sections that have an `id` applied
-  document
-    .querySelectorAll(".markdown-body h3[id]")
-    .forEach(section => {
-      observer.observe(section);
-    });
+  document.querySelectorAll(".markdown-body h3[id]").forEach((section) => {
+    observer.observe(section);
+  });
 
   onBeforeUnmount(() => {
-    observer.disconnect()
-  })
-})
+    observer.disconnect();
+  });
+});
 </script>

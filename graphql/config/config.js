@@ -1,14 +1,14 @@
-import { defineApolloClient } from '@nuxtjs/apollo';
+import { defineApolloClient } from "@nuxtjs/apollo";
 
 export default defineApolloClient({
-  httpEndpoint: 'https://graphql.datocms.com/',
+  httpEndpoint: "https://graphql.datocms.com/",
   httpLinkOptions: {
-    credentials: 'same-origin',
+    credentials: "same-origin",
     headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ce32bbd78955d348af32c5f3fb0417`
+      "Content-Type": "application/json",
+      Authorization: `Bearer ce32bbd78955d348af32c5f3fb0417`,
       // Authorization: `Bearer ${process.env.DATOCMS_GRAPHQL_AUTH_TOKEN}`
-    }
+    },
   },
   // httpEndpoint: '',
   // browserHttpEndpoint: '',

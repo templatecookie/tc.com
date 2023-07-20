@@ -17,7 +17,6 @@ Development & Contribution guide for Developers looking to customize Hasaal for 
 4.  run the command: `php artisan key:generate` to generate a unique application key.
 5.  Open the link to the domain in the browser (Example: [http://localhost:8000](http://localhost:8000)) and complete the installation wizard as directed.
 
-
 ## Source & Credits
 
 Here are the list of tools and framework we used in this application.

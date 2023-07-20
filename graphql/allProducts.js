@@ -1,6 +1,5 @@
 // All Products for Products Page Query
 
-
 export default `
   query {
     allProducts(first: 8, orderBy: id_DESC) {
@@ -29,4 +28,4 @@ export default `
       updatedAt
     }
   }
-`
+`;

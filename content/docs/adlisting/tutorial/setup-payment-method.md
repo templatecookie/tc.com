@@ -5,9 +5,11 @@ category: Getting Started
 ---
 
 # Payment Setting
-To activate payment gateway on your website and receive payment from the customers, You have enable payment gateway's by using API's Keys! Here is where to get them. 
+
+To activate payment gateway on your website and receive payment from the customers, You have enable payment gateway's by using API's Keys! Here is where to get them.
 
 Currently Adlisting support 8 payment gateways.
+
 1. Stripe
 2. Paypal
 3. Paystack
@@ -17,15 +19,16 @@ Currently Adlisting support 8 payment gateways.
 7. Mollie
 8. Midtrans
 
-
 > Attention, you need API keys for every payment provider, which you need to retrieve from your payment gateway provider. Contact your payment gateway's support for any help.
 
 ### How to enable?
+
 - To enable each payment gateway, Go to `Admin Panel` -> `Settings` -> `Payment Gateway`
 
 Enable the payment provider by clicking on the switch, Entering the `API` keys, and hitting update! Congratulations 🎉
 
 ### Paypal Setup
+
 The PayPal integration gives your users the ability to pay via PayPal on your website.
 
 - Go to PayPal Developer Console and Login to your account after clicking the Log into Dashboard button
@@ -37,6 +40,7 @@ The PayPal integration gives your users the ability to pay via PayPal on your we
 - Make sure to also switch the Mode to Live and Submit the new settings.
 
 ### STRIPE Setup
+
 The PayPal integration gives your users the ability to pay via Stripe on your website.
 
 - Go to Stripe Dashboard and Login to your account.
@@ -46,6 +50,7 @@ The PayPal integration gives your users the ability to pay via Stripe on your we
 - Go to your product Admin Panel -> Settings -> Payment Gateway -> Manual Payment -> Stripe Tab and enter the Publishable key and Secret Key.
 
 ### RAZORPAY Setup
+
 The Razorpay integration gives your users the ability to pay with via the Razorpay payment gateway for purchases.
 
 - Go to Razorpay and Login to your account.
@@ -53,13 +58,15 @@ The Razorpay integration gives your users the ability to pay with via the Razorp
 - Go to your product installation Admin Panel -> Website Settings -> Razorpay Tab and enter the given API Keys.
 
 ### Paystack Setup
+
 The Paystack integration gives your users the ability to pay with via the Paystack payment gateway for one time & recurring purchases.
 
 - Go to Paystack and Login to your account.
-- Go to the Settings page -> API Keys 
+- Go to the Settings page -> API Keys
 - Go to your product Admin Panel -> Settings -> Payment Gateway -> Manual Payment -> Paystack Tab and enter the given API Keys.
 
 ### Flutterwave Setup
+
 The Flutterwave integration gives your users the ability to pay with via the Flutterwave payment gateway for purchases.
 
 - Go to [Flutterwave](https://flutterwave.com/us/) and Login to your account.
@@ -67,6 +74,7 @@ The Flutterwave integration gives your users the ability to pay with via the Flu
 - Go to your product Admin Panel -> Settings -> Payment Gateway -> Manual Payment -> Flutterwave and enter the given API Key.
 
 ### Mollie Setup
+
 The Mollie integration gives your users the ability to pay with via the Mollie payment gateway for purchases.
 
 - Go to [Mollie](https://mollie.com/) and Login to your account.
@@ -74,6 +82,7 @@ The Mollie integration gives your users the ability to pay with via the Mollie p
 - Go to your product installation Admin Panel -> Settings -> Payment Gateway -> Manual Payment -> Mollie and enter the given API Key.
 
 ### Midtrans Setup
+
 The Midtrans integration gives your users the ability to pay with via the Midtrans payment gateway for purchases.
 
 - Go to [Midtrans](https://midtrans.com/id) and Login to your account.
